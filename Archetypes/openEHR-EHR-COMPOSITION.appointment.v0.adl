@@ -1,0 +1,69 @@
+archetype (adl_version=1.4; uid=5a5d7d40-7178-3fdb-b8d4-e7a2b26c8f5e)
+    openEHR-EHR-COMPOSITION.appointment.v0
+
+concept
+    [at0000]
+
+language
+    original_language = <[ISO_639-1::en]>
+
+description
+    original_author = <
+        ["name"] = <"">
+    >
+    lifecycle_state = <"0">
+    details = <
+        ["en"] = <
+            language = <[ISO_639-1::en]>
+        >
+    >
+    other_details = <
+        ["MD5-CAM-1.0.1"] = <"2D077C9720E9973E3CCF907ECDA8C4D0">
+        ["build_uuid"] = <"e0351093-7ca9-3227-a597-b52908434fc5">
+    >
+
+definition
+    COMPOSITION[at0000] matches {
+        category matches {
+            DV_CODED_TEXT matches {
+                defining_code matches {
+                    [openehr::433]
+                }
+            }
+        }
+        context matches {
+            EVENT_CONTEXT matches {
+                other_context matches {
+                    ITEM_TREE[at0001] matches {
+                        items cardinality matches {0..*; unordered} matches {
+                            allow_archetype CLUSTER[at0002] occurrences matches {0..*} matches {
+                                include
+                                    archetype_id/value matches {/.*/}
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+ontology
+    terminologies_available = <"en", ...>
+    term_definitions = <
+        ["en"] = <
+            items = <
+                ["at0000"] = <
+                    text = <"Appointment">
+                    description = <"unknown">
+                >
+                ["at0001"] = <
+                    text = <"Tree">
+                    description = <"@ internal @">
+                >
+                ["at0002"] = <
+                    text = <"Extension">
+                    description = <"*">
+                >
+            >
+        >
+    >

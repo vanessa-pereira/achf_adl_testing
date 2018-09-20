@@ -1,0 +1,3567 @@
+{
+  "@type" : "TEMPLATE",
+  "uid" : "aa69c166-ebbd-48d2-bbfe-9fba97ddfbea",
+  "description" : {
+    "@type" : "RESOURCE_DESCRIPTION",
+    "originalAuthor" : { },
+    "otherContributors" : [ ],
+    "lifecycleState" : {
+      "codeString" : "Initial"
+    },
+    "ipAcknowledgements" : { },
+    "references" : { },
+    "conversionDetails" : { },
+    "otherDetails" : {
+      "MetaDataSet:Sample Set " : "Template metadata sample set ",
+      "Acknowledgements" : "",
+      "Business Process Level" : "",
+      "Care setting" : "",
+      "Client group" : "",
+      "Clinical Record Element" : "",
+      "Copyright" : "",
+      "Issues" : "",
+      "Owner" : "",
+      "Sign off" : "",
+      "Speciality" : "",
+      "User roles" : "",
+      "MD5-CAM-1.0.1" : "cc31ca6528d2ffcc20432a3d2d0a92b7",
+      "PARENT:MD5-CAM-1.0.1" : "359240E886E60B5DF8FF06904482F72E"
+    },
+    "details" : {
+      "en" : {
+        "@type" : "RESOURCE_DESCRIPTION_ITEM",
+        "language" : {
+          "terminologyId" : {
+            "value" : "ISO_639-1"
+          },
+          "codeString" : "en"
+        },
+        "purpose" : "",
+        "use" : "",
+        "misuse" : "",
+        "originalResourceUri" : { },
+        "otherDetails" : { }
+      },
+      "ar-sy" : {
+        "@type" : "RESOURCE_DESCRIPTION_ITEM",
+        "language" : {
+          "terminologyId" : {
+            "value" : "ISO_639-1"
+          },
+          "codeString" : "ar-sy"
+        },
+        "originalResourceUri" : { },
+        "otherDetails" : {
+          "notes" : "Generated automatically by Adl Designer"
+        }
+      }
+    }
+  },
+  "parentArchetypeId" : "openEHR-EHR-COMPOSITION.request.v1",
+  "differential" : true,
+  "archetypeId" : {
+    "@type" : "ARCHETYPE_HRID",
+    "value" : "openEHR-EHR-COMPOSITION.t_request.v1"
+  },
+  "definition" : {
+    "@type" : "C_COMPLEX_OBJECT",
+    "rmTypeName" : "COMPOSITION",
+    "nodeId" : "at0000.1",
+    "attributes" : [ {
+      "@type" : "C_ATTRIBUTE",
+      "rmAttributeName" : "category",
+      "children" : [ {
+        "@type" : "C_COMPLEX_OBJECT",
+        "rmTypeName" : "DV_CODED_TEXT",
+        "occurrences" : "1..1",
+        "attributes" : [ {
+          "@type" : "C_ATTRIBUTE",
+          "rmAttributeName" : "defining_code",
+          "existence" : "1..1",
+          "children" : [ {
+            "@type" : "C_TERMINOLOGY_CODE",
+            "rmTypeName" : "CODE_PHRASE",
+            "occurrences" : "1..1",
+            "terminologyId" : {
+              "value" : "openehr"
+            },
+            "constraint" : [ "433" ]
+          } ]
+        } ],
+        "attributeTuples" : [ ]
+      } ]
+    }, {
+      "@type" : "C_ATTRIBUTE",
+      "rmAttributeName" : "context",
+      "children" : [ {
+        "@type" : "C_COMPLEX_OBJECT",
+        "rmTypeName" : "EVENT_CONTEXT",
+        "occurrences" : "1..1",
+        "attributes" : [ {
+          "@type" : "C_ATTRIBUTE",
+          "rmAttributeName" : "other_context",
+          "existence" : "0..1",
+          "children" : [ {
+            "@type" : "C_COMPLEX_OBJECT",
+            "rmTypeName" : "ITEM_TREE",
+            "occurrences" : "1..1",
+            "nodeId" : "at0001",
+            "attributes" : [ {
+              "@type" : "C_ATTRIBUTE",
+              "rmAttributeName" : "items",
+              "existence" : "0..1",
+              "cardinality" : {
+                "@type" : "CARDINALITY",
+                "interval" : "0..*",
+                "ordered" : false,
+                "unique" : false
+              },
+              "children" : [ {
+                "@type" : "ARCHETYPE_SLOT",
+                "rmTypeName" : "CLUSTER",
+                "occurrences" : "0..*",
+                "nodeId" : "at0042",
+                "includes" : [ {
+                  "@type" : "ASSERTION",
+                  "stringExpression" : "archetype_id/value matches {/.*/}",
+                  "expression" : {
+                    "@type" : "BINARY_OPERATOR",
+                    "type" : "BOOLEAN",
+                    "operator" : "matches",
+                    "leftOperand" : {
+                      "@type" : "MODEL_REFERENCE",
+                      "type" : "STRING",
+                      "precedenceOverriden" : false,
+                      "referenceType" : "Attribute",
+                      "path" : "archetype_id/value"
+                    },
+                    "rightOperand" : {
+                      "@type" : "CONSTRAINT",
+                      "type" : "STRING",
+                      "precedenceOverriden" : false,
+                      "referenceType" : "Constraint",
+                      "item" : {
+                        "@type" : "C_STRING",
+                        "constraint" : [ "/.*/" ]
+                      }
+                    },
+                    "precedenceOverriden" : false
+                  },
+                  "variables" : [ ]
+                } ],
+                "excludes" : [ ],
+                "closed" : false
+              }, {
+                "@type" : "C_ARCHETYPE_ROOT",
+                "rmTypeName" : "CLUSTER",
+                "occurrences" : "0..*",
+                "nodeId" : "at0042.1",
+                "attributes" : [ ],
+                "attributeTuples" : [ ],
+                "archetypeRef" : "openEHR-EHR-CLUSTER.ovl-encounter_context-000.v0",
+                "referenceType" : "archetypeOverlay"
+              } ]
+            } ],
+            "attributeTuples" : [ ]
+          } ]
+        } ],
+        "attributeTuples" : [ ]
+      } ]
+    }, {
+      "@type" : "C_ATTRIBUTE",
+      "rmAttributeName" : "content",
+      "existence" : "0..1",
+      "children" : [ {
+        "@type" : "C_ARCHETYPE_ROOT",
+        "rmTypeName" : "INSTRUCTION",
+        "occurrences" : "0..*",
+        "nodeId" : "at0.1",
+        "attributes" : [ ],
+        "attributeTuples" : [ ],
+        "archetypeRef" : "openEHR-EHR-INSTRUCTION.ovl-request-telemonitoring-001.v0",
+        "referenceType" : "archetypeOverlay"
+      } ]
+    } ],
+    "attributeTuples" : [ ]
+  },
+  "terminology" : {
+    "@type" : "ARCHETYPE_TERMINOLOGY",
+    "conceptCode" : "at0000",
+    "termDefinitions" : {
+      "en" : {
+        "at0000.1" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0000.1",
+          "text" : "Vital Signs Measurement Request",
+          "description" : "Document sent from one treating healthcare provider or organisation to another, for the purpose of requesting advice, a service or transfer of care."
+        },
+        "at0042.1" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0042.1",
+          "text" : "CLUSTER",
+          "description" : "*"
+        },
+        "at0.1" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0.1",
+          "text" : "INSTRUCTION",
+          "description" : "*"
+        },
+        "at0001" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0001",
+          "text" : "ITEM_TREE",
+          "description" : "*"
+        },
+        "at0042" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0042",
+          "text" : "CLUSTER",
+          "description" : "*"
+        }
+      },
+      "ar-sy" : {
+        "at0000.1" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0000.1",
+          "text" : "*Request for service(en)",
+          "description" : "*Document sent from one treating healthcare provider or organisation to another, for the purpose of requesting advice, a service or transfer of care.(en)"
+        },
+        "at0042.1" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0042.1",
+          "text" : "CLUSTER",
+          "description" : "*"
+        },
+        "at0.1" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0.1",
+          "text" : "INSTRUCTION",
+          "description" : "*"
+        },
+        "at0001" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0001",
+          "text" : "ITEM_TREE",
+          "description" : "*"
+        },
+        "at0042" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0042",
+          "text" : "CLUSTER",
+          "description" : "*"
+        }
+      }
+    },
+    "termBindings" : { },
+    "terminologyExtracts" : { },
+    "valueSets" : { }
+  },
+  "adlVersion" : "1.4",
+  "buildUid" : "b4de606d-c563-3b56-ba07-ad31d034262c",
+  "rmName" : "openehr",
+  "rmRelease" : "1.0.2",
+  "generated" : true,
+  "templateId" : "Vital Signs Measurement Request",
+  "otherMetaData" : { },
+  "templateOverlays" : [ {
+    "@type" : "TEMPLATE_OVERLAY",
+    "uid" : "5898c287-70da-380f-b228-40530b5c3866",
+    "description" : {
+      "@type" : "RESOURCE_DESCRIPTION",
+      "originalAuthor" : { },
+      "otherContributors" : [ ],
+      "ipAcknowledgements" : { },
+      "references" : { },
+      "conversionDetails" : { },
+      "otherDetails" : {
+        "PARENT:MD5-CAM-1.0.1" : "C2B734A00549EBAAE96882992A1663CD"
+      },
+      "details" : {
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "keywords" : [ ],
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
+    },
+    "parentArchetypeId" : "openEHR-EHR-CLUSTER.encounter_context.v0",
+    "differential" : true,
+    "archetypeId" : {
+      "@type" : "ARCHETYPE_HRID",
+      "value" : "openEHR-EHR-CLUSTER.ovl-encounter_context-000.v0"
+    },
+    "definition" : {
+      "@type" : "C_COMPLEX_OBJECT",
+      "rmTypeName" : "CLUSTER",
+      "nodeId" : "at0000.1",
+      "attributes" : [ ],
+      "attributeTuples" : [ ]
+    },
+    "terminology" : {
+      "@type" : "ARCHETYPE_TERMINOLOGY",
+      "conceptCode" : "at0000",
+      "termDefinitions" : {
+        "en" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Encounter context",
+            "description" : "unknown"
+          }
+        }
+      },
+      "termBindings" : { },
+      "terminologyExtracts" : { },
+      "valueSets" : { }
+    },
+    "adlVersion" : "1.4",
+    "buildUid" : "f02d7943-22f9-3466-b20c-fab750459fb4",
+    "rmName" : "openehr",
+    "rmRelease" : "1.0.2",
+    "generated" : true,
+    "otherMetaData" : { },
+    "originalLanguage" : {
+      "terminologyId" : {
+        "value" : "ISO_639-1"
+      },
+      "codeString" : "en"
+    },
+    "translations" : [ ]
+  }, {
+    "@type" : "TEMPLATE_OVERLAY",
+    "uid" : "a14624d5-2176-47b7-a923-34c016c2e53d",
+    "description" : {
+      "@type" : "RESOURCE_DESCRIPTION",
+      "originalAuthor" : { },
+      "otherContributors" : [ ],
+      "ipAcknowledgements" : { },
+      "references" : { },
+      "conversionDetails" : { },
+      "otherDetails" : {
+        "PARENT:MD5-CAM-1.0.1" : "08649C5C771DF6D134576866C2292E9A"
+      },
+      "details" : {
+        "nb" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "nb"
+          },
+          "purpose" : "Generisk mønster for rekvirering av en hvilken som helst helsetjeneste.",
+          "keywords" : [ "rekvisisjon", "bestilling", "foreskriving", "tjeneste", "tjenesteyter", "rekvirere", "bestille", "anmodning", "forespørre", "forespørsel", "anmode", "tilsyn" ],
+          "use" : "Brukes for å registrere en generell rekvirering/bestilling av helsetjenester. Det lages spesialiserte arketyper for vanlige rekvirerbare tjenester basert på denne arketypen, f.eks. laboratorierekvisisjon eller henvisning.",
+          "misuse" : "Skal ikke brukes for rekvisisjoner der det eksisterer eksplisitte spesialiseringer, f.eks:\r\n- Laboratorierekvisisjon - bruk arketypen INSTRUCTION.request-laboratory_test\r\n- Rekvisisjon av billeddiagnostikk - bruk arketypen INSTRUCTION.request-imaging_exam\r\n- Prosedyrerekvisisjon - bruk arketypen INSTRUCTION.request-procedure\r\n- Henvisning - bruk arketypen INSTRUCTION.request-referral.",
+          "copyright" : "© Nasjonal IKT HF",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "purpose" : "Generic framework for a request for a health-related service to be supplied by a healthcare provider or agency.",
+          "keywords" : [ "request", "order", "service", "provide", "referral" ],
+          "use" : "Use to record a request for a health-related service. This archetype has been designed as a framework that can be used as the basis for:\r\n- a request from one healthcare provider or agency to another healthcare provider or agency for a health-related service - for example, a request for transfer of care to an emergency department, a referral for a second clinical opinion, or provision of home services from a municipal council; or\r\n- a follow up service to be scheduled for the same healthcare provider or agency - for example, a review appointment in outpatients in 6 weeks. \r\n\r\nIn many situations it will be possible to record the steps that occur as part of this request being carried out using the corresponding generic ACTION.request. However, there will be many occasions where the required ACTION archetype will be very specific for purpose, as the data requirements for recording provision of many health-related services will need quite unique data elements, recording patterns or pathway steps. For example: ACTION.screening or ACTION.health_education.",
+          "misuse" : "Not to be used for requests which have a specific specialisation - for example:\r\n- Laboratory test request - use the INSTRUCTION.request-laboratory_test archetype;\r\n- Imaging examination request - use the INSTRUCTION.request-imaging_exam archetype; and\r\n- Procedure request - use the INSTRUCTION.request-procedure archetype.",
+          "copyright" : "© openEHR Foundation, Nasjonal IKT HF",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
+    },
+    "parentArchetypeId" : "openEHR-EHR-INSTRUCTION.request-telemonitoring.v0",
+    "differential" : true,
+    "archetypeId" : {
+      "@type" : "ARCHETYPE_HRID",
+      "value" : "openEHR-EHR-INSTRUCTION.ovl-request-telemonitoring-001.v0"
+    },
+    "definition" : {
+      "@type" : "C_COMPLEX_OBJECT",
+      "rmTypeName" : "INSTRUCTION",
+      "nodeId" : "at0000.1.1",
+      "attributes" : [ {
+        "@type" : "C_ATTRIBUTE",
+        "rmAttributeName" : "activities",
+        "cardinality" : {
+          "@type" : "CARDINALITY",
+          "interval" : "0..*",
+          "ordered" : false,
+          "unique" : false
+        },
+        "children" : [ {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ACTIVITY",
+          "nodeId" : "at0001",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "description",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "ITEM_TREE",
+              "nodeId" : "at0009",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "items",
+                "cardinality" : {
+                  "@type" : "CARDINALITY",
+                  "interval" : "1..*",
+                  "ordered" : false,
+                  "unique" : false
+                },
+                "children" : [ {
+                  "@type" : "C_COMPLEX_OBJECT",
+                  "rmTypeName" : "ELEMENT",
+                  "nodeId" : "at0121.0.1",
+                  "attributes" : [ {
+                    "@type" : "C_ATTRIBUTE",
+                    "rmAttributeName" : "value",
+                    "children" : [ {
+                      "@type" : "C_COMPLEX_OBJECT",
+                      "rmTypeName" : "DV_CODED_TEXT",
+                      "occurrences" : "1..1",
+                      "attributes" : [ {
+                        "@type" : "C_ATTRIBUTE",
+                        "rmAttributeName" : "defining_code",
+                        "children" : [ {
+                          "@type" : "C_TERMINOLOGY_CODE",
+                          "rmTypeName" : "TERMINOLOGY_CODE",
+                          "terminologyId" : {
+                            "value" : "typeActivity"
+                          },
+                          "constraint" : [ "ac0.0.1" ],
+                          "selectedTerminologies" : [ "typeActivity" ]
+                        } ]
+                      } ],
+                      "attributeTuples" : [ ]
+                    } ]
+                  } ],
+                  "attributeTuples" : [ ]
+                }, {
+                  "@type" : "C_COMPLEX_OBJECT",
+                  "rmTypeName" : "ELEMENT",
+                  "nodeId" : "at0135.0.1",
+                  "attributes" : [ {
+                    "@type" : "C_ATTRIBUTE",
+                    "rmAttributeName" : "value",
+                    "children" : [ {
+                      "@type" : "C_COMPLEX_OBJECT",
+                      "rmTypeName" : "DV_TEXT",
+                      "occurrences" : "1..1",
+                      "attributes" : [ ],
+                      "attributeTuples" : [ ]
+                    } ]
+                  } ],
+                  "attributeTuples" : [ ]
+                }, {
+                  "@type" : "C_COMPLEX_OBJECT",
+                  "rmTypeName" : "ELEMENT",
+                  "occurrences" : "0..0",
+                  "nodeId" : "at0062.0.1",
+                  "attributes" : [ {
+                    "@type" : "C_ATTRIBUTE",
+                    "rmAttributeName" : "value",
+                    "children" : [ {
+                      "@type" : "C_COMPLEX_OBJECT",
+                      "rmTypeName" : "DV_TEXT",
+                      "occurrences" : "1..1",
+                      "attributes" : [ ],
+                      "attributeTuples" : [ ]
+                    } ]
+                  } ],
+                  "attributeTuples" : [ ]
+                }, {
+                  "@type" : "C_COMPLEX_OBJECT",
+                  "rmTypeName" : "ELEMENT",
+                  "occurrences" : "0..0",
+                  "nodeId" : "at0064.0.1",
+                  "attributes" : [ {
+                    "@type" : "C_ATTRIBUTE",
+                    "rmAttributeName" : "value",
+                    "children" : [ {
+                      "@type" : "C_COMPLEX_OBJECT",
+                      "rmTypeName" : "DV_TEXT",
+                      "occurrences" : "1..1",
+                      "attributes" : [ ],
+                      "attributeTuples" : [ ]
+                    } ]
+                  } ],
+                  "attributeTuples" : [ ]
+                }, {
+                  "@type" : "C_COMPLEX_OBJECT",
+                  "rmTypeName" : "ELEMENT",
+                  "occurrences" : "0..0",
+                  "nodeId" : "at0065.0.1",
+                  "attributes" : [ {
+                    "@type" : "C_ATTRIBUTE",
+                    "rmAttributeName" : "value",
+                    "children" : [ {
+                      "@type" : "C_COMPLEX_OBJECT",
+                      "rmTypeName" : "DV_TEXT",
+                      "occurrences" : "1..1",
+                      "attributes" : [ ],
+                      "attributeTuples" : [ ]
+                    } ]
+                  } ],
+                  "attributeTuples" : [ ]
+                }, {
+                  "@type" : "C_COMPLEX_OBJECT",
+                  "rmTypeName" : "ELEMENT",
+                  "occurrences" : "0..0",
+                  "nodeId" : "at0068.0.1",
+                  "attributes" : [ {
+                    "@type" : "C_ATTRIBUTE",
+                    "rmAttributeName" : "value",
+                    "children" : [ {
+                      "@type" : "C_COMPLEX_OBJECT",
+                      "rmTypeName" : "DV_CODED_TEXT",
+                      "occurrences" : "1..1",
+                      "attributes" : [ {
+                        "@type" : "C_ATTRIBUTE",
+                        "rmAttributeName" : "defining_code",
+                        "existence" : "1..1",
+                        "children" : [ {
+                          "@type" : "C_TERMINOLOGY_CODE",
+                          "rmTypeName" : "CODE_PHRASE",
+                          "occurrences" : "1..1",
+                          "terminologyId" : {
+                            "value" : "local"
+                          },
+                          "constraint" : [ "at0136", "at0137", "at0138" ]
+                        } ]
+                      } ],
+                      "attributeTuples" : [ ]
+                    }, {
+                      "@type" : "C_COMPLEX_OBJECT",
+                      "rmTypeName" : "DV_TEXT",
+                      "occurrences" : "1..1",
+                      "attributes" : [ ],
+                      "attributeTuples" : [ ]
+                    } ]
+                  } ],
+                  "attributeTuples" : [ ]
+                }, {
+                  "@type" : "C_COMPLEX_OBJECT",
+                  "rmTypeName" : "ELEMENT",
+                  "nodeId" : "at0040.0.1",
+                  "attributes" : [ {
+                    "@type" : "C_ATTRIBUTE",
+                    "rmAttributeName" : "value",
+                    "children" : [ {
+                      "@type" : "C_COMPLEX_OBJECT",
+                      "rmTypeName" : "DV_DATE_TIME",
+                      "occurrences" : "1..1",
+                      "attributes" : [ ],
+                      "attributeTuples" : [ ]
+                    } ]
+                  } ],
+                  "attributeTuples" : [ ]
+                }, {
+                  "@type" : "C_COMPLEX_OBJECT",
+                  "rmTypeName" : "ELEMENT",
+                  "nodeId" : "at0145.0.1",
+                  "attributes" : [ {
+                    "@type" : "C_ATTRIBUTE",
+                    "rmAttributeName" : "value",
+                    "children" : [ {
+                      "@type" : "C_COMPLEX_OBJECT",
+                      "rmTypeName" : "DV_DATE_TIME",
+                      "occurrences" : "1..1",
+                      "attributes" : [ ],
+                      "attributeTuples" : [ ]
+                    } ]
+                  } ],
+                  "attributeTuples" : [ ]
+                }, {
+                  "@type" : "C_COMPLEX_OBJECT",
+                  "rmTypeName" : "ELEMENT",
+                  "nodeId" : "at0144.0.1",
+                  "attributes" : [ {
+                    "@type" : "C_ATTRIBUTE",
+                    "rmAttributeName" : "value",
+                    "children" : [ {
+                      "@type" : "C_COMPLEX_OBJECT",
+                      "rmTypeName" : "DV_DATE_TIME",
+                      "occurrences" : "1..1",
+                      "attributes" : [ ],
+                      "attributeTuples" : [ ]
+                    } ]
+                  } ],
+                  "attributeTuples" : [ ]
+                }, {
+                  "@type" : "C_COMPLEX_OBJECT",
+                  "rmTypeName" : "CLUSTER",
+                  "nodeId" : "at0.150",
+                  "attributes" : [ {
+                    "@type" : "C_ATTRIBUTE",
+                    "rmAttributeName" : "items",
+                    "cardinality" : {
+                      "@type" : "CARDINALITY",
+                      "interval" : "1..*",
+                      "ordered" : false,
+                      "unique" : false
+                    },
+                    "children" : [ {
+                      "@type" : "C_COMPLEX_OBJECT",
+                      "rmTypeName" : "ELEMENT",
+                      "occurrences" : "0..0",
+                      "nodeId" : "at0.151.1",
+                      "attributes" : [ {
+                        "@type" : "C_ATTRIBUTE",
+                        "rmAttributeName" : "value",
+                        "children" : [ {
+                          "@type" : "C_COMPLEX_OBJECT",
+                          "rmTypeName" : "DV_COUNT",
+                          "occurrences" : "1..1",
+                          "attributes" : [ ],
+                          "attributeTuples" : [ ]
+                        } ]
+                      } ],
+                      "attributeTuples" : [ ]
+                    }, {
+                      "@type" : "C_COMPLEX_OBJECT",
+                      "rmTypeName" : "CLUSTER",
+                      "nodeId" : "at0.153",
+                      "attributes" : [ {
+                        "@type" : "C_ATTRIBUTE",
+                        "rmAttributeName" : "items",
+                        "cardinality" : {
+                          "@type" : "CARDINALITY",
+                          "interval" : "1..*",
+                          "ordered" : false,
+                          "unique" : false
+                        },
+                        "children" : [ {
+                          "@type" : "C_COMPLEX_OBJECT",
+                          "rmTypeName" : "ELEMENT",
+                          "occurrences" : "0..0",
+                          "nodeId" : "at0.160.1",
+                          "attributes" : [ {
+                            "@type" : "C_ATTRIBUTE",
+                            "rmAttributeName" : "value",
+                            "children" : [ {
+                              "@type" : "C_COMPLEX_OBJECT",
+                              "rmTypeName" : "DV_TEXT",
+                              "occurrences" : "1..1",
+                              "attributes" : [ ],
+                              "attributeTuples" : [ ]
+                            } ]
+                          } ],
+                          "attributeTuples" : [ ]
+                        }, {
+                          "@type" : "C_ARCHETYPE_ROOT",
+                          "rmTypeName" : "CLUSTER",
+                          "occurrences" : "0..*",
+                          "nodeId" : "at0.155.1",
+                          "attributes" : [ ],
+                          "attributeTuples" : [ ],
+                          "archetypeRef" : "openEHR-EHR-CLUSTER.ovl-timing_daily-002.v0",
+                          "referenceType" : "archetypeOverlay"
+                        } ]
+                      } ],
+                      "attributeTuples" : [ ]
+                    }, {
+                      "@type" : "C_COMPLEX_OBJECT",
+                      "rmTypeName" : "ELEMENT",
+                      "nodeId" : "at0.156.1",
+                      "attributes" : [ {
+                        "@type" : "C_ATTRIBUTE",
+                        "rmAttributeName" : "value",
+                        "children" : [ {
+                          "@type" : "C_COMPLEX_OBJECT",
+                          "rmTypeName" : "DV_DURATION",
+                          "occurrences" : "1..1",
+                          "attributes" : [ {
+                            "@type" : "C_ATTRIBUTE",
+                            "rmAttributeName" : "value",
+                            "existence" : "1..1",
+                            "children" : [ {
+                              "@type" : "C_DURATION",
+                              "rmTypeName" : "DURATION",
+                              "occurrences" : "1..1",
+                              "constraint" : [ {
+                                "lower" : "PT0S",
+                                "lowerUnbounded" : false,
+                                "upperUnbounded" : true,
+                                "lowerIncluded" : true,
+                                "upperIncluded" : false
+                              } ]
+                            } ]
+                          } ],
+                          "attributeTuples" : [ ]
+                        } ]
+                      } ],
+                      "attributeTuples" : [ ]
+                    }, {
+                      "@type" : "C_ARCHETYPE_ROOT",
+                      "rmTypeName" : "CLUSTER",
+                      "occurrences" : "0..*",
+                      "nodeId" : "at0.152.1",
+                      "attributes" : [ ],
+                      "attributeTuples" : [ ],
+                      "archetypeRef" : "openEHR-EHR-CLUSTER.ovl-timing_repetition-003.v0",
+                      "referenceType" : "archetypeOverlay"
+                    } ]
+                  } ],
+                  "attributeTuples" : [ ]
+                }, {
+                  "@type" : "C_COMPLEX_OBJECT",
+                  "rmTypeName" : "ELEMENT",
+                  "occurrences" : "0..0",
+                  "nodeId" : "at0147.0.1",
+                  "attributes" : [ {
+                    "@type" : "C_ATTRIBUTE",
+                    "rmAttributeName" : "value",
+                    "children" : [ {
+                      "@type" : "C_COMPLEX_OBJECT",
+                      "rmTypeName" : "DV_BOOLEAN",
+                      "occurrences" : "1..1",
+                      "attributes" : [ {
+                        "@type" : "C_ATTRIBUTE",
+                        "rmAttributeName" : "value",
+                        "existence" : "1..1",
+                        "children" : [ {
+                          "@type" : "C_BOOLEAN",
+                          "rmTypeName" : "Boolean",
+                          "occurrences" : "1..1",
+                          "constraint" : [ true ]
+                        } ]
+                      } ],
+                      "attributeTuples" : [ ]
+                    } ]
+                  } ],
+                  "attributeTuples" : [ ]
+                }, {
+                  "@type" : "C_COMPLEX_OBJECT",
+                  "rmTypeName" : "ELEMENT",
+                  "occurrences" : "0..0",
+                  "nodeId" : "at0076.0.1",
+                  "attributes" : [ {
+                    "@type" : "C_ATTRIBUTE",
+                    "rmAttributeName" : "value",
+                    "children" : [ {
+                      "@type" : "C_COMPLEX_OBJECT",
+                      "rmTypeName" : "DV_BOOLEAN",
+                      "occurrences" : "1..1",
+                      "attributes" : [ {
+                        "@type" : "C_ATTRIBUTE",
+                        "rmAttributeName" : "value",
+                        "existence" : "1..1",
+                        "children" : [ {
+                          "@type" : "C_BOOLEAN",
+                          "rmTypeName" : "Boolean",
+                          "occurrences" : "1..1",
+                          "constraint" : [ true ]
+                        } ]
+                      } ],
+                      "attributeTuples" : [ ]
+                    } ]
+                  } ],
+                  "attributeTuples" : [ ]
+                }, {
+                  "@type" : "C_COMPLEX_OBJECT",
+                  "rmTypeName" : "ELEMENT",
+                  "occurrences" : "0..0",
+                  "nodeId" : "at0078.0.1",
+                  "attributes" : [ {
+                    "@type" : "C_ATTRIBUTE",
+                    "rmAttributeName" : "value",
+                    "children" : [ {
+                      "@type" : "C_COMPLEX_OBJECT",
+                      "rmTypeName" : "DV_TEXT",
+                      "occurrences" : "1..1",
+                      "attributes" : [ ],
+                      "attributeTuples" : [ ]
+                    } ]
+                  } ],
+                  "attributeTuples" : [ ]
+                }, {
+                  "@type" : "C_ARCHETYPE_ROOT",
+                  "rmTypeName" : "CLUSTER",
+                  "occurrences" : "0..0",
+                  "nodeId" : "at0132.0.1",
+                  "attributes" : [ ],
+                  "attributeTuples" : [ ],
+                  "archetypeRef" : "openEHR-EHR-CLUSTER.ovl-device-004.v1",
+                  "referenceType" : "archetypeOverlay"
+                }, {
+                  "@type" : "C_ARCHETYPE_ROOT",
+                  "rmTypeName" : "CLUSTER",
+                  "occurrences" : "0..0",
+                  "nodeId" : "at0132.0.2",
+                  "attributes" : [ ],
+                  "attributeTuples" : [ ],
+                  "archetypeRef" : "openEHR-EHR-CLUSTER.ovl-device-005.v1",
+                  "referenceType" : "archetypeOverlay"
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        } ]
+      }, {
+        "@type" : "C_ATTRIBUTE",
+        "rmAttributeName" : "protocol",
+        "children" : [ {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ITEM_TREE",
+          "nodeId" : "at0008",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "items",
+            "cardinality" : {
+              "@type" : "CARDINALITY",
+              "interval" : "1..*",
+              "ordered" : false,
+              "unique" : false
+            },
+            "children" : [ {
+              "@type" : "C_ARCHETYPE_ROOT",
+              "rmTypeName" : "CLUSTER",
+              "occurrences" : "0..1",
+              "nodeId" : "at0112.0.1",
+              "attributes" : [ ],
+              "attributeTuples" : [ ],
+              "archetypeRef" : "openEHR-EHR-CLUSTER.ovl-device_hand_over_checklist-006.v0",
+              "referenceType" : "archetypeOverlay"
+            }, {
+              "@type" : "C_ARCHETYPE_ROOT",
+              "rmTypeName" : "CLUSTER",
+              "occurrences" : "0..0",
+              "nodeId" : "at0112.0.2",
+              "attributes" : [ ],
+              "attributeTuples" : [ ],
+              "archetypeRef" : "openEHR-EHR-CLUSTER.ovl-address_isa-007.v1",
+              "referenceType" : "archetypeOverlay"
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        } ]
+      } ],
+      "attributeTuples" : [ ]
+    },
+    "terminology" : {
+      "@type" : "ARCHETYPE_TERMINOLOGY",
+      "conceptCode" : "at0000.1",
+      "termDefinitions" : {
+        "en" : {
+          "at0000.1.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1.1",
+            "text" : "Telemonitoring request",
+            "description" : "Request for a health-related service to be supplied by a healthcare provider or agency.!",
+            "comment" : "For example equipment request.!"
+          },
+          "at0121.0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0121.0.1",
+            "text" : "Service name",
+            "description" : "Identification of the service requested, by name.",
+            "comment" : "Coding of the 'Service name' with a coding system is desirable, if available."
+          },
+          "at0135.0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0135.0.1",
+            "text" : "Instructions",
+            "description" : "Narrative description of the service requested."
+          },
+          "at0062.0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0062.0.1",
+            "text" : "Reason for request",
+            "description" : "A short phrase describing the reason for the request.",
+            "comment" : "Coding of the 'Reason for request' with a coding system is desirable, if available."
+          },
+          "at0064.0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0064.0.1",
+            "text" : "Reason description",
+            "description" : "Narrative description about the reason for request."
+          },
+          "at0065.0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0065.0.1",
+            "text" : "Intent",
+            "description" : "Description of the intent for the request.",
+            "comment" : "For example a referral with the intent of having specialist care take over the care of the patient, or advice on how to proceed with an investigation or treatment. This data element allows multiple occurrences to enable multiple choice selection in user interface."
+          },
+          "at0068.0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0068.0.1",
+            "text" : "Urgency",
+            "description" : "Urgency of the request for service.",
+            "comment" : "Specific definitions of emergency and urgent will vary between clinical contexts, clinical systems and the nature of the request itself, so have not be defined in this archetype. If explicit timing is required then the Service period should be clearly stated."
+          },
+          "at0040.0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0040.0.1",
+            "text" : "Due Date",
+            "description" : "The date/time, or acceptable interval of date/time, for provision of the service.",
+            "comment" : "In practice, clinicians will often think in terms of ordering services as approximate timing, for example: review in 3 months, 6 months or 12 months. As clinical systems need more exact parameters to operate on, this '3 months' will usually be converted to an exact date 3 months from the date of recording and stored using this data element."
+          },
+          "at0145.0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0145.0.1",
+            "text" : "Start date",
+            "description" : "The date/time that marks the beginning of the valid period of time for delivery of this service.",
+            "comment" : "This date/time is the equivalent to the earliest possible date for service delivery. For example: sometimes a certain amount of time must pass before a service can be performed, for example some procedures can only be performed once the patient has stopped taking medications for a specific amount of time."
+          },
+          "at0144.0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0144.0.1",
+            "text" : "End date",
+            "description" : "The date/time that marks the conclusion of the valid period of time for delivery of this service.",
+            "comment" : "This date/time is the equivalent to the latest possible date for service delivery or to the date of expiry for this request. For example: a service may be required to be completed before another event, such as scheduled surgery."
+          },
+          "at0.151.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0.151.1",
+            "text" : "Direction sequence",
+            "description" : "*"
+          },
+          "at0.160.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0.160.1",
+            "text" : "Requirements",
+            "description" : "*"
+          },
+          "at0.156.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0.156.1",
+            "text" : "Direction duration",
+            "description" : "*"
+          },
+          "at0147.0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0147.0.1",
+            "text" : "Indefinite?",
+            "description" : "The valid period for this request is open ended and has no date of expiry.",
+            "comment" : "Record as TRUE to record explicity that the request has no expiry date."
+          },
+          "at0076.0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0076.0.1",
+            "text" : "Information to follow?",
+            "description" : "Will supplementary information be following this request?",
+            "comment" : "Record as TRUE if additional information has been identified and will be forwarded when available. For example: pending test results."
+          },
+          "at0078.0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0078.0.1",
+            "text" : "Information description",
+            "description" : "Description of the supplementary information."
+          },
+          "at0.155.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0.155.1",
+            "text" : "CLUSTER",
+            "description" : "*"
+          },
+          "at0.152.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0.152.1",
+            "text" : "CLUSTER",
+            "description" : "*"
+          },
+          "at0132.0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0132.0.1",
+            "text" : "CLUSTER",
+            "description" : "*"
+          },
+          "at0132.0.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0132.0.2",
+            "text" : "CLUSTER",
+            "description" : "*"
+          },
+          "at0112.0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0112.0.1",
+            "text" : "CLUSTER",
+            "description" : "*"
+          },
+          "at0112.0.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0112.0.2",
+            "text" : "CLUSTER",
+            "description" : "*"
+          },
+          "at0001" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0001",
+            "text" : "ACTIVITY",
+            "description" : "*"
+          },
+          "at0009" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0009",
+            "text" : "ITEM_TREE",
+            "description" : "*"
+          },
+          "at0.150" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0.150",
+            "text" : "CLUSTER",
+            "description" : "*"
+          },
+          "at0.153" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0.153",
+            "text" : "CLUSTER",
+            "description" : "*"
+          },
+          "at0008" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0008",
+            "text" : "ITEM_TREE",
+            "description" : "*"
+          }
+        },
+        "nb" : {
+          "at0000.1.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1.1",
+            "text" : "*Service request!(en)",
+            "description" : "*Request for a health-related service to be supplied by a healthcare provider or agency.!(en)",
+            "comment" : "*For example equipment request.!(en)"
+          },
+          "at0121.0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0121.0.1",
+            "text" : "Tjenestenavn",
+            "description" : "Navn på forespurt tjeneste.",
+            "comment" : "Koding av tjenestenavnet med et kodeverk er ønskelig, dersom tilgjengelig."
+          },
+          "at0135.0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0135.0.1",
+            "text" : "Instructions",
+            "description" : "Fritekstlig beskrivelse av tjenesten som er rekvirert."
+          },
+          "at0062.0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0062.0.1",
+            "text" : "*Reason for request(en)",
+            "description" : "*A short phrase describing the reason for the request.(en)",
+            "comment" : "*Coding of the 'Reason for request' with a coding system is desirable, if available.(en)"
+          },
+          "at0064.0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0064.0.1",
+            "text" : "*Reason description(en)",
+            "description" : "*Narrative description about the reason for request.(en)"
+          },
+          "at0065.0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0065.0.1",
+            "text" : "*Intent(en)",
+            "description" : "*Description of the intent for the request.(en)",
+            "comment" : "*For example a referral with the intent of having specialist care take over the care of the patient, or advice on how to proceed with an investigation or treatment. This data element allows multiple occurrences to enable multiple choice selection in user interface.(en)"
+          },
+          "at0068.0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0068.0.1",
+            "text" : "*Urgency(en)",
+            "description" : "*Urgency of the request for service.(en)",
+            "comment" : "*Specific definitions of emergency and urgent will vary between clinical contexts, clinical systems and the nature of the request itself, so have not be defined in this archetype. If explicit timing is required then the Service period should be clearly stated.(en)"
+          },
+          "at0040.0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0040.0.1",
+            "text" : "Due Date",
+            "description" : "*The date/time, or acceptable interval of date/time, for provision of the service.(en)",
+            "comment" : "*In practice, clinicians will often think in terms of ordering services as approximate timing, for example: review in 3 months, 6 months or 12 months. As clinical systems need more exact parameters to operate on, this '3 months' will usually be converted to an exact date 3 months from the date of recording and stored using this data element.(en)"
+          },
+          "at0145.0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0145.0.1",
+            "text" : "Start date",
+            "description" : "*The date/time that marks the beginning of the valid period of time for delivery of this service.(en)",
+            "comment" : "*This date/time is the equivalent to the earliest possible date for service delivery. For example: sometimes a certain amount of time must pass before a service can be performed, for example some procedures can only be performed once the patient has stopped taking medications for a specific amount of time.(en)"
+          },
+          "at0144.0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0144.0.1",
+            "text" : "End date",
+            "description" : "*The date/time that marks the conclusion of the valid period of time for delivery of this service.(en)",
+            "comment" : "*This date/time is the equivalent to the latest possible date for service delivery or to the date of expiry for this request. For example: a service may be required to be completed before another event, such as scheduled surgery.(en)"
+          },
+          "at0.151.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0.151.1",
+            "text" : "*New element(en)",
+            "description" : "**(en)"
+          },
+          "at0.160.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0.160.1",
+            "text" : "*New element(en)",
+            "description" : "**(en)"
+          },
+          "at0.156.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0.156.1",
+            "text" : "*New element(en)",
+            "description" : "**(en)"
+          },
+          "at0147.0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0147.0.1",
+            "text" : "*Indefinite?(en)",
+            "description" : "*The valid period for this request is open ended and has no date of expiry.(en)",
+            "comment" : "*Record as TRUE to record explicity that the request has no expiry date.(en)"
+          },
+          "at0076.0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0076.0.1",
+            "text" : "*Information to follow?(en)",
+            "description" : "*Will supplementary information be following this request?(en)",
+            "comment" : "*Record as TRUE if additional information has been identified and will be forwarded when available. For example: pending test results.(en)"
+          },
+          "at0078.0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0078.0.1",
+            "text" : "*Information description(en)",
+            "description" : "*Description of the supplementary information.(en)"
+          },
+          "at0.155.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0.155.1",
+            "text" : "CLUSTER",
+            "description" : "*"
+          },
+          "at0.152.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0.152.1",
+            "text" : "CLUSTER",
+            "description" : "*"
+          },
+          "at0132.0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0132.0.1",
+            "text" : "CLUSTER",
+            "description" : "*"
+          },
+          "at0132.0.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0132.0.2",
+            "text" : "CLUSTER",
+            "description" : "*"
+          },
+          "at0112.0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0112.0.1",
+            "text" : "CLUSTER",
+            "description" : "*"
+          },
+          "at0112.0.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0112.0.2",
+            "text" : "CLUSTER",
+            "description" : "*"
+          },
+          "at0001" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0001",
+            "text" : "ACTIVITY",
+            "description" : "*"
+          },
+          "at0009" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0009",
+            "text" : "ITEM_TREE",
+            "description" : "*"
+          },
+          "at0.150" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0.150",
+            "text" : "CLUSTER",
+            "description" : "*"
+          },
+          "at0.153" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0.153",
+            "text" : "CLUSTER",
+            "description" : "*"
+          },
+          "at0008" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0008",
+            "text" : "ITEM_TREE",
+            "description" : "*"
+          }
+        }
+      },
+      "termBindings" : {
+        "typeActivity" : {
+          "ac0.0.1" : "terminology:typeActivity?subset=typeActivity&language=en-GB"
+        }
+      },
+      "terminologyExtracts" : { },
+      "valueSets" : { }
+    },
+    "adlVersion" : "1.4",
+    "buildUid" : "7853ec65-c896-358f-b5f8-515826d4c6aa",
+    "rmName" : "openehr",
+    "rmRelease" : "1.0.2",
+    "generated" : true,
+    "otherMetaData" : { },
+    "originalLanguage" : {
+      "terminologyId" : {
+        "value" : "ISO_639-1"
+      },
+      "codeString" : "en"
+    },
+    "translations" : [ {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "nb"
+      },
+      "author" : {
+        "name" : "Lars Bitsch-Larsen",
+        "organisation" : "Haukeland University Hospital of Bergen, Norway"
+      },
+      "accreditation" : "MD, DEAA, MBA, spec in anesthesia, spec in tropical medicine.",
+      "otherDetails" : { }
+    } ]
+  }, {
+    "@type" : "TEMPLATE_OVERLAY",
+    "uid" : "990278cc-5954-4bc3-8599-919417da096b",
+    "description" : {
+      "@type" : "RESOURCE_DESCRIPTION",
+      "originalAuthor" : { },
+      "otherContributors" : [ ],
+      "ipAcknowledgements" : { },
+      "references" : { },
+      "conversionDetails" : { },
+      "otherDetails" : {
+        "PARENT:MD5-CAM-1.0.1" : "B479AA8F61F176A3E1A82B4567263EC4"
+      },
+      "details" : {
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "purpose" : "To provide structured information on time schedules within a single day that is suitable for computation and display for human interpretation.",
+          "keywords" : [ "timing", "administration", "dosing", "frequency" ],
+          "use" : "For use with medication orders and other instructions where timing is complex and needs to be computable.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "sl" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "sl"
+          },
+          "purpose" : "*To provide structured information on time schedules within a single day that is suitable for computation and display for human interpretation.(en)",
+          "keywords" : [ ],
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
+    },
+    "parentArchetypeId" : "openEHR-EHR-CLUSTER.timing_daily.v0",
+    "differential" : true,
+    "archetypeId" : {
+      "@type" : "ARCHETYPE_HRID",
+      "value" : "openEHR-EHR-CLUSTER.ovl-timing_daily-002.v0"
+    },
+    "definition" : {
+      "@type" : "C_COMPLEX_OBJECT",
+      "rmTypeName" : "CLUSTER",
+      "nodeId" : "at0000.1",
+      "attributes" : [ {
+        "@type" : "C_ATTRIBUTE",
+        "rmAttributeName" : "items",
+        "cardinality" : {
+          "@type" : "CARDINALITY",
+          "interval" : "1..*",
+          "ordered" : false,
+          "unique" : false
+        },
+        "children" : [ {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "nodeId" : "at0003.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_QUANTITY",
+              "occurrences" : "1..1",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "property",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "terminologyId" : {
+                    "value" : "openehr"
+                  },
+                  "constraint" : [ "382" ]
+                } ]
+              } ],
+              "attributeTuples" : [ {
+                "@type" : "C_ATTRIBUTE_TUPLE",
+                "members" : [ {
+                  "@type" : "C_ATTRIBUTE",
+                  "rmAttributeName" : "units",
+                  "children" : [ ]
+                }, {
+                  "@type" : "C_ATTRIBUTE",
+                  "rmAttributeName" : "magnitude",
+                  "children" : [ ]
+                }, {
+                  "@type" : "C_ATTRIBUTE",
+                  "rmAttributeName" : "precision",
+                  "children" : [ ]
+                } ],
+                "tuples" : [ {
+                  "@type" : "C_PRIMITIVE_TUPLE",
+                  "members" : [ {
+                    "@type" : "C_STRING",
+                    "rmTypeName" : "STRING",
+                    "constraint" : [ "1/d" ]
+                  }, {
+                    "@type" : "C_REAL",
+                    "rmTypeName" : "REAL",
+                    "constraint" : [ {
+                      "lower" : 0.0,
+                      "upper" : 1.0,
+                      "lowerUnbounded" : true,
+                      "upperUnbounded" : true,
+                      "lowerIncluded" : true,
+                      "upperIncluded" : true
+                    } ]
+                  }, {
+                    "@type" : "C_INTEGER",
+                    "rmTypeName" : "INTEGER",
+                    "constraint" : [ {
+                      "lower" : 0,
+                      "upper" : 0,
+                      "lowerUnbounded" : false,
+                      "upperUnbounded" : false,
+                      "lowerIncluded" : true,
+                      "upperIncluded" : true
+                    } ]
+                  } ]
+                }, {
+                  "@type" : "C_PRIMITIVE_TUPLE",
+                  "members" : [ {
+                    "@type" : "C_STRING",
+                    "rmTypeName" : "STRING",
+                    "constraint" : [ "1/min" ]
+                  }, {
+                    "@type" : "C_REAL",
+                    "rmTypeName" : "REAL",
+                    "constraint" : [ {
+                      "lower" : 0.0,
+                      "lowerUnbounded" : true,
+                      "upperUnbounded" : false,
+                      "lowerIncluded" : true,
+                      "upperIncluded" : false
+                    } ]
+                  }, {
+                    "@type" : "C_INTEGER",
+                    "rmTypeName" : "INTEGER",
+                    "constraint" : [ ]
+                  } ]
+                }, {
+                  "@type" : "C_PRIMITIVE_TUPLE",
+                  "members" : [ {
+                    "@type" : "C_STRING",
+                    "rmTypeName" : "STRING",
+                    "constraint" : [ "1/s" ]
+                  }, {
+                    "@type" : "C_REAL",
+                    "rmTypeName" : "REAL",
+                    "constraint" : [ {
+                      "lower" : 0.0,
+                      "lowerUnbounded" : true,
+                      "upperUnbounded" : false,
+                      "lowerIncluded" : true,
+                      "upperIncluded" : false
+                    } ]
+                  }, {
+                    "@type" : "C_INTEGER",
+                    "rmTypeName" : "INTEGER",
+                    "constraint" : [ ]
+                  } ]
+                }, {
+                  "@type" : "C_PRIMITIVE_TUPLE",
+                  "members" : [ {
+                    "@type" : "C_STRING",
+                    "rmTypeName" : "STRING",
+                    "constraint" : [ "1/h" ]
+                  }, {
+                    "@type" : "C_REAL",
+                    "rmTypeName" : "REAL",
+                    "constraint" : [ {
+                      "lower" : 0.0,
+                      "lowerUnbounded" : true,
+                      "upperUnbounded" : false,
+                      "lowerIncluded" : true,
+                      "upperIncluded" : false
+                    } ]
+                  }, {
+                    "@type" : "C_INTEGER",
+                    "rmTypeName" : "INTEGER",
+                    "constraint" : [ ]
+                  } ]
+                } ]
+              } ]
+            }, {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_INTERVAL<DV_QUANTITY>",
+              "occurrences" : "1..1",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "upper",
+                "existence" : "0..1",
+                "children" : [ {
+                  "@type" : "C_COMPLEX_OBJECT",
+                  "rmTypeName" : "DV_QUANTITY",
+                  "occurrences" : "1..1",
+                  "attributes" : [ {
+                    "@type" : "C_ATTRIBUTE",
+                    "rmAttributeName" : "property",
+                    "children" : [ {
+                      "@type" : "C_TERMINOLOGY_CODE",
+                      "terminologyId" : {
+                        "value" : "openehr"
+                      },
+                      "constraint" : [ "382" ]
+                    } ]
+                  } ],
+                  "attributeTuples" : [ {
+                    "@type" : "C_ATTRIBUTE_TUPLE",
+                    "members" : [ {
+                      "@type" : "C_ATTRIBUTE",
+                      "rmAttributeName" : "units",
+                      "children" : [ ]
+                    }, {
+                      "@type" : "C_ATTRIBUTE",
+                      "rmAttributeName" : "magnitude",
+                      "children" : [ ]
+                    }, {
+                      "@type" : "C_ATTRIBUTE",
+                      "rmAttributeName" : "precision",
+                      "children" : [ ]
+                    } ],
+                    "tuples" : [ {
+                      "@type" : "C_PRIMITIVE_TUPLE",
+                      "members" : [ {
+                        "@type" : "C_STRING",
+                        "rmTypeName" : "STRING",
+                        "constraint" : [ "1/d" ]
+                      }, {
+                        "@type" : "C_REAL",
+                        "rmTypeName" : "REAL",
+                        "constraint" : [ {
+                          "upper" : 1.0,
+                          "lowerUnbounded" : false,
+                          "upperUnbounded" : true,
+                          "lowerIncluded" : false,
+                          "upperIncluded" : true
+                        } ]
+                      }, {
+                        "@type" : "C_INTEGER",
+                        "rmTypeName" : "INTEGER",
+                        "constraint" : [ {
+                          "lower" : 0,
+                          "upper" : 0,
+                          "lowerUnbounded" : false,
+                          "upperUnbounded" : false,
+                          "lowerIncluded" : true,
+                          "upperIncluded" : true
+                        } ]
+                      } ]
+                    }, {
+                      "@type" : "C_PRIMITIVE_TUPLE",
+                      "members" : [ {
+                        "@type" : "C_STRING",
+                        "rmTypeName" : "STRING",
+                        "constraint" : [ "1/min" ]
+                      }, {
+                        "@type" : "C_REAL",
+                        "rmTypeName" : "REAL",
+                        "constraint" : [ {
+                          "lower" : 0.0,
+                          "lowerUnbounded" : true,
+                          "upperUnbounded" : false,
+                          "lowerIncluded" : true,
+                          "upperIncluded" : false
+                        } ]
+                      }, {
+                        "@type" : "C_INTEGER",
+                        "rmTypeName" : "INTEGER",
+                        "constraint" : [ ]
+                      } ]
+                    }, {
+                      "@type" : "C_PRIMITIVE_TUPLE",
+                      "members" : [ {
+                        "@type" : "C_STRING",
+                        "rmTypeName" : "STRING",
+                        "constraint" : [ "1/s" ]
+                      }, {
+                        "@type" : "C_REAL",
+                        "rmTypeName" : "REAL",
+                        "constraint" : [ {
+                          "lower" : 0.0,
+                          "lowerUnbounded" : true,
+                          "upperUnbounded" : false,
+                          "lowerIncluded" : true,
+                          "upperIncluded" : false
+                        } ]
+                      }, {
+                        "@type" : "C_INTEGER",
+                        "rmTypeName" : "INTEGER",
+                        "constraint" : [ ]
+                      } ]
+                    }, {
+                      "@type" : "C_PRIMITIVE_TUPLE",
+                      "members" : [ {
+                        "@type" : "C_STRING",
+                        "rmTypeName" : "STRING",
+                        "constraint" : [ "1/h" ]
+                      }, {
+                        "@type" : "C_REAL",
+                        "rmTypeName" : "REAL",
+                        "constraint" : [ {
+                          "lower" : 0.0,
+                          "upper" : 24.0,
+                          "lowerUnbounded" : true,
+                          "upperUnbounded" : true,
+                          "lowerIncluded" : true,
+                          "upperIncluded" : true
+                        } ]
+                      }, {
+                        "@type" : "C_INTEGER",
+                        "rmTypeName" : "INTEGER",
+                        "constraint" : [ {
+                          "lower" : 0,
+                          "upper" : 0,
+                          "lowerUnbounded" : false,
+                          "upperUnbounded" : false,
+                          "lowerIncluded" : true,
+                          "upperIncluded" : true
+                        } ]
+                      } ]
+                    } ]
+                  } ]
+                } ]
+              }, {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "lower",
+                "existence" : "0..1",
+                "children" : [ {
+                  "@type" : "C_COMPLEX_OBJECT",
+                  "rmTypeName" : "DV_QUANTITY",
+                  "occurrences" : "1..1",
+                  "attributes" : [ {
+                    "@type" : "C_ATTRIBUTE",
+                    "rmAttributeName" : "property",
+                    "children" : [ {
+                      "@type" : "C_TERMINOLOGY_CODE",
+                      "terminologyId" : {
+                        "value" : "openehr"
+                      },
+                      "constraint" : [ "382" ]
+                    } ]
+                  } ],
+                  "attributeTuples" : [ {
+                    "@type" : "C_ATTRIBUTE_TUPLE",
+                    "members" : [ {
+                      "@type" : "C_ATTRIBUTE",
+                      "rmAttributeName" : "units",
+                      "children" : [ ]
+                    }, {
+                      "@type" : "C_ATTRIBUTE",
+                      "rmAttributeName" : "magnitude",
+                      "children" : [ ]
+                    } ],
+                    "tuples" : [ {
+                      "@type" : "C_PRIMITIVE_TUPLE",
+                      "members" : [ {
+                        "@type" : "C_STRING",
+                        "rmTypeName" : "STRING",
+                        "constraint" : [ "1/d" ]
+                      }, {
+                        "@type" : "C_REAL",
+                        "rmTypeName" : "REAL",
+                        "constraint" : [ {
+                          "lower" : 0.0,
+                          "lowerUnbounded" : true,
+                          "upperUnbounded" : false,
+                          "lowerIncluded" : true,
+                          "upperIncluded" : false
+                        } ]
+                      } ]
+                    }, {
+                      "@type" : "C_PRIMITIVE_TUPLE",
+                      "members" : [ {
+                        "@type" : "C_STRING",
+                        "rmTypeName" : "STRING",
+                        "constraint" : [ "1/min" ]
+                      }, {
+                        "@type" : "C_REAL",
+                        "rmTypeName" : "REAL",
+                        "constraint" : [ {
+                          "lower" : 0.0,
+                          "lowerUnbounded" : true,
+                          "upperUnbounded" : false,
+                          "lowerIncluded" : true,
+                          "upperIncluded" : false
+                        } ]
+                      } ]
+                    }, {
+                      "@type" : "C_PRIMITIVE_TUPLE",
+                      "members" : [ {
+                        "@type" : "C_STRING",
+                        "rmTypeName" : "STRING",
+                        "constraint" : [ "1/s" ]
+                      }, {
+                        "@type" : "C_REAL",
+                        "rmTypeName" : "REAL",
+                        "constraint" : [ {
+                          "lower" : 0.0,
+                          "lowerUnbounded" : true,
+                          "upperUnbounded" : false,
+                          "lowerIncluded" : true,
+                          "upperIncluded" : false
+                        } ]
+                      } ]
+                    }, {
+                      "@type" : "C_PRIMITIVE_TUPLE",
+                      "members" : [ {
+                        "@type" : "C_STRING",
+                        "rmTypeName" : "STRING",
+                        "constraint" : [ "1/h" ]
+                      }, {
+                        "@type" : "C_REAL",
+                        "rmTypeName" : "REAL",
+                        "constraint" : [ {
+                          "lower" : 0.0,
+                          "lowerUnbounded" : true,
+                          "upperUnbounded" : false,
+                          "lowerIncluded" : true,
+                          "upperIncluded" : false
+                        } ]
+                      } ]
+                    } ]
+                  } ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0014.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_DURATION",
+              "occurrences" : "1..1",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "value",
+                "existence" : "1..1",
+                "children" : [ {
+                  "@type" : "C_DURATION",
+                  "rmTypeName" : "DURATION",
+                  "occurrences" : "1..1",
+                  "patternedConstraint" : "PTHMS",
+                  "constraint" : [ {
+                    "lower" : "PT0S",
+                    "upper" : "PT24H",
+                    "lowerUnbounded" : false,
+                    "upperUnbounded" : false,
+                    "lowerIncluded" : true,
+                    "upperIncluded" : true
+                  } ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "nodeId" : "at0004.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_INTERVAL<DV_TIME>",
+              "occurrences" : "1..1",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "upper",
+                "existence" : "0..1",
+                "children" : [ {
+                  "@type" : "C_COMPLEX_OBJECT",
+                  "rmTypeName" : "DV_TIME",
+                  "occurrences" : "1..1",
+                  "attributes" : [ ],
+                  "attributeTuples" : [ ]
+                } ]
+              }, {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "lower",
+                "existence" : "0..1",
+                "children" : [ {
+                  "@type" : "C_COMPLEX_OBJECT",
+                  "rmTypeName" : "DV_TIME",
+                  "occurrences" : "1..1",
+                  "attributes" : [ ],
+                  "attributeTuples" : [ ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "nodeId" : "at0026.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "occurrences" : "1..1",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "existence" : "1..1",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "CODE_PHRASE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "local"
+                  },
+                  "constraint" : [ "ac0.1" ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0023.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_BOOLEAN",
+              "occurrences" : "1..1",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0024.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_BOOLEAN",
+              "occurrences" : "1..1",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0025.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_TEXT",
+              "occurrences" : "1..1",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        } ]
+      } ],
+      "attributeTuples" : [ ]
+    },
+    "terminology" : {
+      "@type" : "ARCHETYPE_TERMINOLOGY",
+      "conceptCode" : "at0000",
+      "termDefinitions" : {
+        "en" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Timing - daily",
+            "description" : "Structured information about the timing (intended or actual) of administration or use of a medicine, other therapeutic good or other intervention that is given on a scheduled basis."
+          },
+          "at0014.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0014.1",
+            "text" : "Interval",
+            "description" : "The time interval or minimum and maximum range of an interval between each scheduled activity, limited to a single day.",
+            "comment" : "e.g. \"Every 4 hours\" or \"Every 4 to 6 hours\"."
+          },
+          "at0004.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0004.1",
+            "text" : "Specific time",
+            "description" : "A specific time or interval of time  during a single day when the activity should occur.",
+            "comment" : "e.g \"at 0800, 1400, 15.25.\""
+          },
+          "at0026.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0026.1",
+            "text" : "Named time event",
+            "description" : "A specific, named time event within a single day, when the activity should occur.",
+            "comment" : "e.g. before each meal, at bedtime, in the morning.\r\nIt is understood that these terms may not equate to the same exact times in different cultures."
+          },
+          "at0023.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0023.1",
+            "text" : "Exact timing critical",
+            "description" : "Is exact timing of the activity critical to patient safety or wellbeing?"
+          },
+          "at0024.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0024.1",
+            "text" : "As required",
+            "description" : "The activity should only occur when the \"as required\" trigger condition is met.",
+            "comment" : "Termed 'PRN' in some cultures."
+          },
+          "at0025.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0025.1",
+            "text" : "As required criterion",
+            "description" : "The condition which triggers an 'as required' activity.",
+            "comment" : "e.g. as required for pain."
+          },
+          "at0003.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0003.1",
+            "text" : "Frequency",
+            "description" : "The frequency as number of times per time period (limited to a single day) that the activity is to take place.",
+            "comment" : "e.g. \"4 times per day\" or \"\"3 to 4 times per hour\""
+          }
+        },
+        "sl" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "*Daily timing(en)",
+            "description" : "*Structured information about the timing (intended or actual) of administration or use of a medicine, other therapeutic good or other intervention that is given on a scheduled basis.(en)"
+          },
+          "at0014.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0014.1",
+            "text" : "*Interval(en)",
+            "description" : "*The time interval between each scheduled activity, limited to a single day.(en)",
+            "comment" : "*e.g. \"Every 4 hours\".(en)"
+          },
+          "at0004.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0004.1",
+            "text" : "*Specific time(en)",
+            "description" : "*A specific time during a single day when the activity should occur.(en)",
+            "comment" : "*e.g \"at 0800, 1400, 15.25.\"(en)"
+          },
+          "at0026.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0026.1",
+            "text" : "*Named time event(en)",
+            "description" : "*A specific, named time event within a single day, when the activity should occur.(en)",
+            "comment" : "*e.g. before each meal, at bedtime, in the morning.\r\nIt is understood that these terms may not equate to the same exact times in different cultures.(en)"
+          },
+          "at0023.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0023.1",
+            "text" : "*Exact timing critical(en)",
+            "description" : "*Is exact timing of the activity critical to patient safety or wellbeing?(en)"
+          },
+          "at0024.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0024.1",
+            "text" : "*As required(en)",
+            "description" : "*The activity should only occur when the \"as required\" trigger condition is met.(en)",
+            "comment" : "*Termed 'PRN' in some cultures.(en)"
+          },
+          "at0025.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0025.1",
+            "text" : "*As required criterion(en)",
+            "description" : "*The condition which triggers an 'as required' activity.(en)",
+            "comment" : "*e.g. as required for pain.(en)"
+          },
+          "at0003.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0003.1",
+            "text" : "*Frequency(en)",
+            "description" : "*The frequency as number of times per time period (limited to a single day) that the activity is to take place.(en)",
+            "comment" : "*e.g. \"4 times per day\" or \"\"3 to 4 times per hour\"(en)"
+          }
+        }
+      },
+      "termBindings" : {
+        "dayParts" : {
+          "ac0.1" : "terminology:dayParts?subset=dayParts&language=en-GB"
+        }
+      },
+      "terminologyExtracts" : { },
+      "valueSets" : { }
+    },
+    "adlVersion" : "1.4",
+    "buildUid" : "dddde01c-a87a-34d6-a9ab-c115f145e65c",
+    "rmName" : "openehr",
+    "rmRelease" : "1.0.2",
+    "generated" : true,
+    "otherMetaData" : { },
+    "originalLanguage" : {
+      "terminologyId" : {
+        "value" : "ISO_639-1"
+      },
+      "codeString" : "en"
+    },
+    "translations" : [ {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "sl"
+      },
+      "author" : {
+        "name" : "?"
+      },
+      "otherDetails" : { }
+    } ]
+  }, {
+    "@type" : "TEMPLATE_OVERLAY",
+    "uid" : "b40ad367-5aeb-4689-93bd-576986ede5cc",
+    "description" : {
+      "@type" : "RESOURCE_DESCRIPTION",
+      "originalAuthor" : { },
+      "otherContributors" : [ ],
+      "ipAcknowledgements" : { },
+      "references" : { },
+      "conversionDetails" : { },
+      "otherDetails" : {
+        "PARENT:MD5-CAM-1.0.1" : "A182F8A4EA32F8F75E6C0573A5A3B94C"
+      },
+      "details" : {
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "purpose" : "To record details of scheduled activities over periods longer than a single day.",
+          "keywords" : [ ],
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
+    },
+    "parentArchetypeId" : "openEHR-EHR-CLUSTER.timing_repetition.v0",
+    "differential" : true,
+    "archetypeId" : {
+      "@type" : "ARCHETYPE_HRID",
+      "value" : "openEHR-EHR-CLUSTER.ovl-timing_repetition-003.v0"
+    },
+    "definition" : {
+      "@type" : "C_COMPLEX_OBJECT",
+      "rmTypeName" : "CLUSTER",
+      "nodeId" : "at0000.1",
+      "attributes" : [ {
+        "@type" : "C_ATTRIBUTE",
+        "rmAttributeName" : "items",
+        "cardinality" : {
+          "@type" : "CARDINALITY",
+          "interval" : "1..*",
+          "ordered" : false,
+          "unique" : false
+        },
+        "children" : [ {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0015.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_BOOLEAN",
+              "occurrences" : "1..1",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "value",
+                "existence" : "1..1",
+                "children" : [ {
+                  "@type" : "C_BOOLEAN",
+                  "rmTypeName" : "Boolean",
+                  "occurrences" : "1..1",
+                  "constraint" : [ true ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0001.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_DATE_TIME",
+              "occurrences" : "1..1",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0004.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_COUNT",
+              "occurrences" : "1..1",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "magnitude",
+                "existence" : "0..1",
+                "children" : [ {
+                  "@type" : "C_INTEGER",
+                  "rmTypeName" : "Integer",
+                  "occurrences" : "1..1",
+                  "constraint" : [ {
+                    "lower" : 1,
+                    "upper" : 31,
+                    "lowerUnbounded" : false,
+                    "upperUnbounded" : false,
+                    "lowerIncluded" : true,
+                    "upperIncluded" : true
+                  } ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "CLUSTER",
+          "occurrences" : "0..0",
+          "nodeId" : "at0006.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "CLUSTER",
+          "occurrences" : "0..0",
+          "nodeId" : "at0010.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        } ]
+      } ],
+      "attributeTuples" : [ ]
+    },
+    "terminology" : {
+      "@type" : "ARCHETYPE_TERMINOLOGY",
+      "conceptCode" : "at0000",
+      "termDefinitions" : {
+        "en" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Timing - repetition",
+            "description" : "Details of timing schedules repeating over periods longer than a single day."
+          },
+          "at0015.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0015.1",
+            "text" : "Single activity only",
+            "description" : "The activity should only be performed on a single occasion and is not to be repeated."
+          },
+          "at0001.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0001.1",
+            "text" : "Specific date",
+            "description" : "The activity should take place on a specific date.",
+            "comment" : "e.g. 'on 12 Jan 2017'"
+          },
+          "at0004.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0004.1",
+            "text" : "Specific day of month",
+            "description" : "The activity should take place on a specific day of the month.",
+            "comment" : "e.g. 'on the 3rd, 13th and 23rd of each month'."
+          },
+          "at0006.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0006.1",
+            "text" : "Specific event",
+            "description" : "The activity should take place in relation to a specific named event."
+          },
+          "at0010.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0010.1",
+            "text" : "On /off cycle",
+            "description" : "A cycle of activity where an on-off pattern is required.",
+            "comment" : "e.g. 'take 3 tablets daily for 1 week, omit a week, then take 3 tablets daily for 1 week, repeat 4 times'"
+          }
+        }
+      },
+      "termBindings" : { },
+      "terminologyExtracts" : { },
+      "valueSets" : { }
+    },
+    "adlVersion" : "1.4",
+    "buildUid" : "fbf56449-898e-39dc-b08c-6734c8f98a29",
+    "rmName" : "openehr",
+    "rmRelease" : "1.0.2",
+    "generated" : true,
+    "otherMetaData" : { },
+    "originalLanguage" : {
+      "terminologyId" : {
+        "value" : "ISO_639-1"
+      },
+      "codeString" : "en"
+    },
+    "translations" : [ ]
+  }, {
+    "@type" : "TEMPLATE_OVERLAY",
+    "uid" : "7907fadc-5c8d-35e1-91f8-e96069d1b4dd",
+    "description" : {
+      "@type" : "RESOURCE_DESCRIPTION",
+      "originalAuthor" : { },
+      "otherContributors" : [ ],
+      "ipAcknowledgements" : { },
+      "references" : { },
+      "conversionDetails" : { },
+      "otherDetails" : {
+        "PARENT:MD5-CAM-1.0.1" : "F09649C839F331ADA3FA32CD0F42B5A5"
+      },
+      "details" : {
+        "nb" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "nb"
+          },
+          "purpose" : "*To record the details of a medical device used in the provision of healthcare.(en)",
+          "keywords" : [ "*device(en)", "*machine(en)", "*implant(en)", "*appliance(en)", "*catheter(en)", "*prosthesis(en)", "*aid(en)", "*biomedical(en)", "*instrument(en)", "*equipment(en)", "*meter(en)", "*monitor(en)", "*software(en)" ],
+          "use" : "*Use to record the details of a medical device used in the provision of healthcare.\r\n\r\nUse of the term 'medical device' varies depending on context. Within the Standards world, the term device tends to refer to mechanical or electronic devices that support healthcare and require rigorous documentation regarding location tracking, maintenance, calibration, software versions etc.  Within the terminology context the use of device is very broad, including any medical device that can be used in direct or indirect provision of clinical care, as long as it is does not act in a way that exerts a direct pharmacological, metabolic or  immunological effect.\r\n\r\nExamples of medical devices range from simple devices such as urinary catheters, tongue depressors, contact lenses, breast implants, plain dressings, joint prostheses, syringe drivers and spirometers through to advanced devices such as artificial hearts, mobile phone applications and computerised devices that capture point-of-care medical measurements. \r\n\r\nIn the complex situation where a surgically implanted device is used as the means to deliver therapeutic agents such as chemotherapy directly into the body, this archetype will be used to record only the details about the medical device itself and the order for medication and details about the actual administration of the therapeutic agent will be recorded using specific medication-related INSTRUCTION and ACTION archetypes.\r\n\r\nThis archetype is designed to provide the framework for structured representation of any medical device and the data elements that are contained here are not specific for any one type of device. Single use devices will commonly require data elements such as Lot Number and Date of Expiry. In contrast these are usually not relevant for durable devices which will often have a set of identifiers, including a UID, Serial Number, Model etc.\r\n\r\nFurther, different types of devices will require specific information relevant to their purpose. This data can be recorded using specific CLUSTER archetypes inserted into the 'Specific propserties' SLOT. For example: use of a urinary catheter may require additional details about the diameter and length of catheter, material composition, number of lumens etc.\r\n\r\nIf the medical device has a number of components that require recording of details, each individual component should be recorded explicitly by using an additional CLUSTER.device archetype inserted into the 'Components' SLOT.\r\n\r\nThe data field 'Software Version' allows for only a single version to be recorded. This is primarily applicable for a device which is a software application. If the device has multiple software or hardware components that need to be specified, this should be done by using an addition CLUSTER.device inserted into the 'Components' SLOT.\r\n\r\nTo record additional details for durable or persistent devices that relate to ownership, physical location tracking, maintenance schedules etc, use CLUSTER.device_details archetype inserted into the 'Asset management' SLOT in this archetype.(en)",
+          "misuse" : "*Not to be used to record data about medicinal products that exert a direct pharmacological, metabolic or immunologic direct effect. For example: a medicine impregnated dressing should be recorded using the  INSTRUCTION.medication_order archetype, focused on the active ingredients, dosage etc.(en)",
+          "copyright" : "*© openEHR Foundation(en)",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "es-ar" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "es-ar"
+          },
+          "purpose" : "Registrar los detalles de un objeto físico, producto o dispositivo utilizado en el sentido mas amplio de la provisión de cuidados de la salud, pero no como medio terapéutico o metabólico.",
+          "keywords" : [ "dispositivo", "máquina", "implante", "cateter", "prótesis", "auxiliar", "biomédico", "instrumento", "equipamiento", "medidor", "monitor", "físico", "objeto" ],
+          "use" : "Utilizado para registrar los detalles de cualquier dispositivo genérico que puede ser utilizado directamente de un modo terapéutico o diagnóstico, o indirectamente como apoyo a la provisión de cuidados de la salud. El uso del término dispositivo varía dependiendo del contexto. En el mundo de los estándares, el término dispositivo tiende a referirse a dispositivos mecánicos o electrónicos que actuan como apoyo del cuidado de la salud y que requiren documentación rigurosa en cuanto a especificaciones, mantenimiento, etc. En el contexto de las terminologías, el uso de dispositivo es muy amplio, incluyendo a cualquier objeto físico que pueda ser utilizado directa o indirectamente en la provisión de cuidados clínicos. Los ejemplos incluyen ventiladores, medidores de flujo expiratorio máximo, espirómetros, lentes oculares y de contacto, catéteres endovasculares, implantes mamarios, prótesis, tubos de drenaje y anillos para callos. \r\nEste arquetipo esta diseñado para proveer la base de una representación estructurada de cualquier dispositivo, desde el simple ejemplo de una marca de tira reactiva urinaria con una fecha de vencimiento hasta un oído biónico implantable que puede requerir documentación compleja, software, hardware, mantenimiento, calibración, etc.\r\nPara los casos de uso habituales podría ser apropiada la especialización de este arquetipo para formas específicas (ej.: cateter endovascular o cateter urinario).",
+          "misuse" : "No debe ser utilizado para el registro de medicamentos, vacunas o similares, que se utizan como medios terapéuticos o metabólicos.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "purpose" : "To record the details of a medical device used in the provision of healthcare.",
+          "keywords" : [ "device", "machine", "implant", "appliance", "catheter", "prosthesis", "aid", "biomedical", "instrument", "equipment", "meter", "monitor", "software" ],
+          "use" : "Use to record the details of a medical device used in the provision of healthcare.\r\n\r\nUse of the term 'medical device' varies depending on context. Within the Standards world, the term device tends to refer to mechanical or electronic devices that support healthcare and require rigorous documentation regarding location tracking, maintenance, calibration, software versions etc.  Within the terminology context the use of device is very broad, including any medical device that can be used in direct or indirect provision of clinical care, as long as it does not act in a way that exerts a direct pharmacological, metabolic or  immunological effect.\r\n\r\nExamples of medical devices range from simple devices such as urinary catheters, tongue depressors, contact lenses, artificial joint implants, breast implants and plain dressings through to advanced devices such as artificial hearts, syringe drivers, spirometers, mobile phone applications and computerised devices that capture point-of-care medical measurements. \r\n\r\nIn the complex situation where a surgically implanted device is used as the means to deliver therapeutic agents such as chemotherapy directly into the body, this archetype will be used to record only the details about the medical device itself and the order for medication and details about the actual administration of the therapeutic agent will be recorded using specific medication-related INSTRUCTION and ACTION archetypes.\r\n\r\nThis archetype is designed to provide the framework for structured representation of any medical device and the data elements that are contained here are not specific for any one type of device. Single use devices will commonly require data elements such as Lot Number and Date of Expiry. In contrast these are usually not relevant for durable devices which will often have a set of identifiers, including a UID, Serial Number, Model etc.\r\n\r\nFurther, different types of devices will require specific information relevant to their purpose. This data can be recorded using specific CLUSTER archetypes inserted into the 'Specific properties' SLOT. For example: use of a urinary catheter may require additional details about the diameter and length of catheter, material composition, number of lumens etc.\r\n\r\nIf the medical device has a number of components that require recording of details, each individual component should be recorded explicitly by using an additional CLUSTER.device archetype inserted into the 'Components' SLOT.\r\n\r\nThe data field 'Software Version' allows for only a single version to be recorded. This is primarily applicable for a device which is a software application. If the device has multiple software or hardware components that need to be specified, this should be done by using an addition CLUSTER.device inserted into the 'Components' SLOT.\r\n\r\nTo record additional details for durable or persistent devices that relate to ownership, physical location tracking, maintenance schedules etc, use CLUSTER.device_details archetype inserted into the 'Asset management' SLOT in this archetype.\r\n\r\nThis archetype has been designed for generic use within other archetypes that need to describe a device. Examples include: OBSERVATION.blood_pressure for the sphygmomanometer; OBSERVATION.ecg for the ECG machine; OBSERVATION.urinalysis for the reactent strips and the device used for testing; ACTION.procedure; and CLUSTER.exam_tympanic_membrane to detail the otoscope used.",
+          "misuse" : "Not to be used to record data about medicinal products that exert a direct pharmacological, metabolic or immunologic effect. For example: a medicine impregnated dressing that requires a prescription should be recorded using the  INSTRUCTION.medication_order archetype, focused on the active ingredients, dosage etc.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "ar-sy" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "ar-sy"
+          },
+          "purpose" : "لتسجيل التفاصيل حول شيئ محسوس, مُنتَج أو جهيزة يتم استخدامها في أوسع وصف لتقديم الخدمة الصحية, و لكن دون طريقة أيضية أو علاجية مباشِرة.",
+          "keywords" : [ "الجهيزة", "الآلة", "الطُّعم", "جهاز مساعد", "القثطار", "البِدْلة", "مساعدة", "طبي بيولوجي", "أداة", "المعدات", "مقياس", "مِرْقب", "بدني/محسوس", "شيئ" ],
+          "use" : "يستخدم لتسجيل التفاصيل حول أي جهيزة جنيسة (غير محدودة الملكية) و التي يمكن أن تستخدم إما مباشرةً بطريقة علاجية أو تشخيصية أو تستخدم بشكل غير مباشر لدعم تقديم الخدمة الصحية.\r\nو يختلف استخدام اللفظ (جهيزة) على حسب السياق. \r\nو في داخل عالم المعايير, فإن اللفظ (جهيزة) يميل إلى الإشارة إلى الجهائز الإلكترونية أو الميكانيكية/الحركية و التي تدعم الرعاية الصحية, و تتطلب توثيق مكثف فيما يتعلق بالمواصفات و الصيانة... إلى آخره.\r\nو في سياق عالم المصطلحات فإن استخدام (جهيزة) واسع جدا, بما في ذلك أي شيئ محسوس يمكن استخدامه في تقديم الرعاية الصحية إما بشكل مباشر أو غير مباشر. \r\nو تتضمن الأمثلة: دوائر أجهزة التنفس الصناعي, مقاييس الجريان القِمِّي, مقاييس التنفس, نظارات العين, العدسات اللاصقة, القثطار داخل الوريد, طُعوم الثدي, البِدْلات, أنابيب المَنْزَح, و الحلقات المسمارية.\r\n\r\nو تم تصميم هذا النموذج ليمثل الأساس لعرض مركب لأي جهيزة, من مثال بسيط لنوع من غميسة البول مع تاريخ الاستخدام, إلى طعم أذن من كائن حيّ و الذي يتطلب توثيق مركب مثل البرنامج الإلكتروني, و الأجزاء الصلبة, و الصيانة و التعيير, إلى آخره.\r\n\r\nو بالنسبة لحالات الاستخدام المعتادة, فقد يكون من المناسب تخصيص هذا النموذج خاصة في القثطار داخل الوريد أو القثطار البولي.",
+          "misuse" : "لا يستخدم لتسجيل المنتجات, مثل الأدوية أو التطعيمات أو ما شابه, و التي تستخدم لأغراض علاجية أو أيضية",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
+    },
+    "parentArchetypeId" : "openEHR-EHR-CLUSTER.device.v1",
+    "differential" : true,
+    "archetypeId" : {
+      "@type" : "ARCHETYPE_HRID",
+      "value" : "openEHR-EHR-CLUSTER.ovl-device-004.v1"
+    },
+    "definition" : {
+      "@type" : "C_COMPLEX_OBJECT",
+      "rmTypeName" : "CLUSTER",
+      "nodeId" : "at0000.1",
+      "attributes" : [ {
+        "@type" : "C_ATTRIBUTE",
+        "rmAttributeName" : "items",
+        "cardinality" : {
+          "@type" : "CARDINALITY",
+          "interval" : "1..*",
+          "ordered" : false,
+          "unique" : false
+        },
+        "children" : [ {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0002.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_TEXT",
+              "occurrences" : "1..1",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0005.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_DATE_TIME",
+              "occurrences" : "1..1",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0020.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_TEXT",
+              "occurrences" : "1..1",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0022.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_TEXT",
+              "occurrences" : "1..1",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0023.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_TEXT",
+              "occurrences" : "1..1",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0006.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_TEXT",
+              "occurrences" : "1..1",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0025.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_TEXT",
+              "occurrences" : "1..1",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0007.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_DATE_TIME",
+              "occurrences" : "1..1",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0024.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_IDENTIFIER",
+              "occurrences" : "1..1",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        } ]
+      } ],
+      "attributeTuples" : [ ]
+    },
+    "terminology" : {
+      "@type" : "ARCHETYPE_TERMINOLOGY",
+      "conceptCode" : "at0000",
+      "termDefinitions" : {
+        "ar-sy" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "*Medical Device(en)",
+            "description" : "*An instrument, apparatus, implant, material or similar, used in the provision of healthcare. In this context, a medical device includes a broad range of devices which act through a variety of physical, mechanical, thermal or similar means but specifically excludes devices which act through medicinal means such as pharmacological, metabolic or immunological methods.  The scope is inclusive of disposable devices as well as durable or persisting devices that require tracking, maintenance activities or regular calibration, recognising that each type of device has specific data recording requirements.(en)"
+          },
+          "at0002.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0002.1",
+            "text" : "الوصف",
+            "description" : "وصف الجهيزة"
+          },
+          "at0005.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0005.1",
+            "text" : "تاريخ التصنيع",
+            "description" : "تاريخ تصنيع الجهيزة"
+          },
+          "at0020.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0020.1",
+            "text" : "*New element(en)",
+            "description" : "**(en)"
+          },
+          "at0022.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0022.1",
+            "text" : "*New element(en)",
+            "description" : "**(en)"
+          },
+          "at0023.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0023.1",
+            "text" : "*New element(en)",
+            "description" : "**(en)"
+          },
+          "at0006.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0006.1",
+            "text" : "رقم التشغيلة",
+            "description" : "رقم التشغيلة من المُصَنِّع"
+          },
+          "at0025.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0025.1",
+            "text" : "*Software version(en)",
+            "description" : "*Identification of the version of software being used in the medical device.(en)",
+            "comment" : "*When the medical device is an actual software application, record the version of the software using this data element. When the medical device has multiple software applications embedded within it, record each software component in a separate CLUSTER archetype within the Components SLOT - either as a nested instance of another CLUSTER.device archetype or using a CLUSTER archetype designed specifically for recording software details (but not yet available at time of this archetype development).(en)"
+          },
+          "at0007.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0007.1",
+            "text" : "تاريخ انتهاء الصلاحية",
+            "description" : "التاريخ الذي يكون عنجه الجهيزة/المنتج غير مناسبا للاستخدام"
+          },
+          "at0024.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0024.1",
+            "text" : "*Other identifier(en)",
+            "description" : "*Unspecified identifier, which can be further specified in a template or at run time.(en)",
+            "comment" : "*Coding of the name of the identifier with a coding system is desirable, if available.(en)"
+          }
+        },
+        "en" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Medical Device",
+            "description" : "An instrument, apparatus, implant, material or similar, used in the provision of healthcare. In this context, a medical device includes a broad range of devices which act through a variety of physical, mechanical, thermal or similar means but specifically excludes devices which act through medicinal means such as pharmacological, metabolic or immunological methods.  The scope is inclusive of disposable devices as well as durable or persisting devices that require tracking, maintenance activities or regular calibration, recognising that each type of device has specific data recording requirements."
+          },
+          "at0002.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0002.1",
+            "text" : "Description",
+            "description" : "Narrative description of the medical device."
+          },
+          "at0005.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0005.1",
+            "text" : "Date of manufacture",
+            "description" : "Date the device was manufactured."
+          },
+          "at0020.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0020.1",
+            "text" : "Serial number",
+            "description" : "Number assigned by the manufacturer which can be found on the device, and should be specific to each device., its label, or accompanying packaging."
+          },
+          "at0022.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0022.1",
+            "text" : "Catalogue number",
+            "description" : "The exact number assigned by the manufacturer, as it appears in the manufacturer's catalogue, device labeling, or accompanying packaging."
+          },
+          "at0023.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0023.1",
+            "text" : "Model number",
+            "description" : "The exact model number assigned by the manufacturer and found on the device label or accompanying packaging."
+          },
+          "at0006.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0006.1",
+            "text" : "Batch/Lot number",
+            "description" : "The number assigned by the manufacturer which identifies a group of items manufactured at the same time, usually found on the label or packaging material."
+          },
+          "at0025.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0025.1",
+            "text" : "Software version",
+            "description" : "Identification of the version of software being used in the medical device.",
+            "comment" : "When the medical device is an actual software application, record the version of the software using this data element. When the medical device has multiple software applications embedded within it, record each software component in a separate CLUSTER archetype within the Components SLOT - either as a nested instance of another CLUSTER.device archetype or using a CLUSTER archetype designed specifically for recording software details (but not yet available at time of this archetype development)."
+          },
+          "at0007.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0007.1",
+            "text" : "Date of expiry",
+            "description" : "Date after which the device/product is no longer fit for use, usually found on the device itself or printed on the accompanying packaging.",
+            "comment" : "This date usually applies only to single use or disposable devices."
+          },
+          "at0024.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0024.1",
+            "text" : "Other identifier",
+            "description" : "Unspecified identifier, which can be further specified in a template or at run time.",
+            "comment" : "Coding of the name of the identifier with a coding system is desirable, if available."
+          }
+        },
+        "nb" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "*Medical Device(en)",
+            "description" : "*An instrument, apparatus, implant, material or similar, used in the provision of healthcare. In this context, a medical device includes a broad range of devices which act through a variety of physical, mechanical, thermal or similar means but specifically excludes devices which act through medicinal means such as pharmacological, metabolic or immunological methods.  The scope is inclusive of disposable devices as well as durable or persisting devices that require tracking, maintenance activities or regular calibration, recognising that each type of device has specific data recording requirements.(en)"
+          },
+          "at0002.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0002.1",
+            "text" : "Beskrivelse",
+            "description" : "*Narrative description of the medical device.(en)"
+          },
+          "at0005.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0005.1",
+            "text" : "Produksjonsdato",
+            "description" : "Dato for produksjon av enheten."
+          },
+          "at0020.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0020.1",
+            "text" : "*Serial number(en)",
+            "description" : "*Number assigned by the manufacturer which can be found on the device, and should be specific to each device., its label, or accompanying packaging.(en)"
+          },
+          "at0022.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0022.1",
+            "text" : "*Catalog number(en)",
+            "description" : "*The exact number assigned by the manufacturer, as it appears in the manufacturer's catalog, device labeling, or accompanying packaging.(en)"
+          },
+          "at0023.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0023.1",
+            "text" : "*Model number(en)",
+            "description" : "*The exact model number assigned by the manufacturer and found on the device label or accompanying packaging.(en)"
+          },
+          "at0006.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0006.1",
+            "text" : "*Batch/Lot number(en)",
+            "description" : "*The number assigned by the manufacturer which identifies a group of items manufactured at the same time, usually found on the label or packaging material.(en)"
+          },
+          "at0025.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0025.1",
+            "text" : "*Software version(en)",
+            "description" : "*Identification of the version of software being used in the medical device.(en)",
+            "comment" : "*When the medical device is an actual software application, record the version of the software using this data element. When the medical device has multiple software applications embedded within it, record each software component in a separate CLUSTER archetype within the Components SLOT - either as a nested instance of another CLUSTER.device archetype or using a CLUSTER archetype designed specifically for recording software details (but not yet available at time of this archetype development).(en)"
+          },
+          "at0007.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0007.1",
+            "text" : "Utløpsdato",
+            "description" : "*Date after which the device/product is no longer fit for use, usually found on the device itself or printed on the accompanying packaging.(en)",
+            "comment" : "*This date usually applies only to single use or disposable devices.(en)"
+          },
+          "at0024.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0024.1",
+            "text" : "*Other identifier(en)",
+            "description" : "*Unspecified identifier, which can be further specified in a template or at run time.(en)",
+            "comment" : "*Coding of the name of the identifier with a coding system is desirable, if available.(en)"
+          }
+        },
+        "es-ar" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "*Medical Device(en)",
+            "description" : "*An instrument, apparatus, implant, material or similar, used in the provision of healthcare. In this context, a medical device includes a broad range of devices which act through a variety of physical, mechanical, thermal or similar means but specifically excludes devices which act through medicinal means such as pharmacological, metabolic or immunological methods.  The scope is inclusive of disposable devices as well as durable or persisting devices that require tracking, maintenance activities or regular calibration, recognising that each type of device has specific data recording requirements.(en)"
+          },
+          "at0002.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0002.1",
+            "text" : "Descripción",
+            "description" : "Descripción del dispositivo."
+          },
+          "at0005.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0005.1",
+            "text" : "Fecha de fabricación",
+            "description" : "Fecha de fabricación del dispositivo."
+          },
+          "at0020.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0020.1",
+            "text" : "*New element(en)",
+            "description" : "**(en)"
+          },
+          "at0022.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0022.1",
+            "text" : "*New element(en)",
+            "description" : "**(en)"
+          },
+          "at0023.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0023.1",
+            "text" : "*New element(en)",
+            "description" : "**(en)"
+          },
+          "at0006.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0006.1",
+            "text" : "Número de lote",
+            "description" : "Número de lote del fabricante."
+          },
+          "at0025.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0025.1",
+            "text" : "*Software version(en)",
+            "description" : "*Identification of the version of software being used in the medical device.(en)",
+            "comment" : "*When the medical device is an actual software application, record the version of the software using this data element. When the medical device has multiple software applications embedded within it, record each software component in a separate CLUSTER archetype within the Components SLOT - either as a nested instance of another CLUSTER.device archetype or using a CLUSTER archetype designed specifically for recording software details (but not yet available at time of this archetype development).(en)"
+          },
+          "at0007.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0007.1",
+            "text" : "Fecha de vencimiento",
+            "description" : "Fecha para la cual el dispositivo o producto deja de ser adecuado para su uso."
+          },
+          "at0024.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0024.1",
+            "text" : "*Other identifier(en)",
+            "description" : "*Unspecified identifier, which can be further specified in a template or at run time.(en)",
+            "comment" : "*Coding of the name of the identifier with a coding system is desirable, if available.(en)"
+          }
+        }
+      },
+      "termBindings" : { },
+      "terminologyExtracts" : { },
+      "valueSets" : { }
+    },
+    "adlVersion" : "1.4",
+    "buildUid" : "b564bcca-3c1e-3249-b72e-e51ed78f29c8",
+    "rmName" : "openehr",
+    "rmRelease" : "1.0.2",
+    "generated" : true,
+    "otherMetaData" : { },
+    "originalLanguage" : {
+      "terminologyId" : {
+        "value" : "ISO_639-1"
+      },
+      "codeString" : "en"
+    },
+    "translations" : [ {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "nb"
+      },
+      "author" : {
+        "name" : "Lars Bitsch-Larsen",
+        "organisation" : "Haukeland University Hospital",
+        "email" : "lbla@helse-bergen.no"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "es-ar"
+      },
+      "author" : {
+        "name" : "Alan March",
+        "organisation" : "Hospital Universitario Austral, Buenos Aires, Argentina",
+        "email" : "amarch@cas.austral.edu.ar"
+      },
+      "accreditation" : "MD",
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "ar-sy"
+      },
+      "author" : {
+        "name" : "Mona Saleh"
+      },
+      "otherDetails" : { }
+    } ]
+  }, {
+    "@type" : "TEMPLATE_OVERLAY",
+    "uid" : "7907fadc-5c8d-35e1-91f8-e96069d1b4dd",
+    "description" : {
+      "@type" : "RESOURCE_DESCRIPTION",
+      "originalAuthor" : { },
+      "otherContributors" : [ ],
+      "ipAcknowledgements" : { },
+      "references" : { },
+      "conversionDetails" : { },
+      "otherDetails" : {
+        "PARENT:MD5-CAM-1.0.1" : "F09649C839F331ADA3FA32CD0F42B5A5"
+      },
+      "details" : {
+        "nb" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "nb"
+          },
+          "purpose" : "*To record the details of a medical device used in the provision of healthcare.(en)",
+          "keywords" : [ "*device(en)", "*machine(en)", "*implant(en)", "*appliance(en)", "*catheter(en)", "*prosthesis(en)", "*aid(en)", "*biomedical(en)", "*instrument(en)", "*equipment(en)", "*meter(en)", "*monitor(en)", "*software(en)" ],
+          "use" : "*Use to record the details of a medical device used in the provision of healthcare.\r\n\r\nUse of the term 'medical device' varies depending on context. Within the Standards world, the term device tends to refer to mechanical or electronic devices that support healthcare and require rigorous documentation regarding location tracking, maintenance, calibration, software versions etc.  Within the terminology context the use of device is very broad, including any medical device that can be used in direct or indirect provision of clinical care, as long as it is does not act in a way that exerts a direct pharmacological, metabolic or  immunological effect.\r\n\r\nExamples of medical devices range from simple devices such as urinary catheters, tongue depressors, contact lenses, breast implants, plain dressings, joint prostheses, syringe drivers and spirometers through to advanced devices such as artificial hearts, mobile phone applications and computerised devices that capture point-of-care medical measurements. \r\n\r\nIn the complex situation where a surgically implanted device is used as the means to deliver therapeutic agents such as chemotherapy directly into the body, this archetype will be used to record only the details about the medical device itself and the order for medication and details about the actual administration of the therapeutic agent will be recorded using specific medication-related INSTRUCTION and ACTION archetypes.\r\n\r\nThis archetype is designed to provide the framework for structured representation of any medical device and the data elements that are contained here are not specific for any one type of device. Single use devices will commonly require data elements such as Lot Number and Date of Expiry. In contrast these are usually not relevant for durable devices which will often have a set of identifiers, including a UID, Serial Number, Model etc.\r\n\r\nFurther, different types of devices will require specific information relevant to their purpose. This data can be recorded using specific CLUSTER archetypes inserted into the 'Specific propserties' SLOT. For example: use of a urinary catheter may require additional details about the diameter and length of catheter, material composition, number of lumens etc.\r\n\r\nIf the medical device has a number of components that require recording of details, each individual component should be recorded explicitly by using an additional CLUSTER.device archetype inserted into the 'Components' SLOT.\r\n\r\nThe data field 'Software Version' allows for only a single version to be recorded. This is primarily applicable for a device which is a software application. If the device has multiple software or hardware components that need to be specified, this should be done by using an addition CLUSTER.device inserted into the 'Components' SLOT.\r\n\r\nTo record additional details for durable or persistent devices that relate to ownership, physical location tracking, maintenance schedules etc, use CLUSTER.device_details archetype inserted into the 'Asset management' SLOT in this archetype.(en)",
+          "misuse" : "*Not to be used to record data about medicinal products that exert a direct pharmacological, metabolic or immunologic direct effect. For example: a medicine impregnated dressing should be recorded using the  INSTRUCTION.medication_order archetype, focused on the active ingredients, dosage etc.(en)",
+          "copyright" : "*© openEHR Foundation(en)",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "es-ar" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "es-ar"
+          },
+          "purpose" : "Registrar los detalles de un objeto físico, producto o dispositivo utilizado en el sentido mas amplio de la provisión de cuidados de la salud, pero no como medio terapéutico o metabólico.",
+          "keywords" : [ "dispositivo", "máquina", "implante", "cateter", "prótesis", "auxiliar", "biomédico", "instrumento", "equipamiento", "medidor", "monitor", "físico", "objeto" ],
+          "use" : "Utilizado para registrar los detalles de cualquier dispositivo genérico que puede ser utilizado directamente de un modo terapéutico o diagnóstico, o indirectamente como apoyo a la provisión de cuidados de la salud. El uso del término dispositivo varía dependiendo del contexto. En el mundo de los estándares, el término dispositivo tiende a referirse a dispositivos mecánicos o electrónicos que actuan como apoyo del cuidado de la salud y que requiren documentación rigurosa en cuanto a especificaciones, mantenimiento, etc. En el contexto de las terminologías, el uso de dispositivo es muy amplio, incluyendo a cualquier objeto físico que pueda ser utilizado directa o indirectamente en la provisión de cuidados clínicos. Los ejemplos incluyen ventiladores, medidores de flujo expiratorio máximo, espirómetros, lentes oculares y de contacto, catéteres endovasculares, implantes mamarios, prótesis, tubos de drenaje y anillos para callos. \r\nEste arquetipo esta diseñado para proveer la base de una representación estructurada de cualquier dispositivo, desde el simple ejemplo de una marca de tira reactiva urinaria con una fecha de vencimiento hasta un oído biónico implantable que puede requerir documentación compleja, software, hardware, mantenimiento, calibración, etc.\r\nPara los casos de uso habituales podría ser apropiada la especialización de este arquetipo para formas específicas (ej.: cateter endovascular o cateter urinario).",
+          "misuse" : "No debe ser utilizado para el registro de medicamentos, vacunas o similares, que se utizan como medios terapéuticos o metabólicos.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "purpose" : "To record the details of a medical device used in the provision of healthcare.",
+          "keywords" : [ "device", "machine", "implant", "appliance", "catheter", "prosthesis", "aid", "biomedical", "instrument", "equipment", "meter", "monitor", "software" ],
+          "use" : "Use to record the details of a medical device used in the provision of healthcare.\r\n\r\nUse of the term 'medical device' varies depending on context. Within the Standards world, the term device tends to refer to mechanical or electronic devices that support healthcare and require rigorous documentation regarding location tracking, maintenance, calibration, software versions etc.  Within the terminology context the use of device is very broad, including any medical device that can be used in direct or indirect provision of clinical care, as long as it does not act in a way that exerts a direct pharmacological, metabolic or  immunological effect.\r\n\r\nExamples of medical devices range from simple devices such as urinary catheters, tongue depressors, contact lenses, artificial joint implants, breast implants and plain dressings through to advanced devices such as artificial hearts, syringe drivers, spirometers, mobile phone applications and computerised devices that capture point-of-care medical measurements. \r\n\r\nIn the complex situation where a surgically implanted device is used as the means to deliver therapeutic agents such as chemotherapy directly into the body, this archetype will be used to record only the details about the medical device itself and the order for medication and details about the actual administration of the therapeutic agent will be recorded using specific medication-related INSTRUCTION and ACTION archetypes.\r\n\r\nThis archetype is designed to provide the framework for structured representation of any medical device and the data elements that are contained here are not specific for any one type of device. Single use devices will commonly require data elements such as Lot Number and Date of Expiry. In contrast these are usually not relevant for durable devices which will often have a set of identifiers, including a UID, Serial Number, Model etc.\r\n\r\nFurther, different types of devices will require specific information relevant to their purpose. This data can be recorded using specific CLUSTER archetypes inserted into the 'Specific properties' SLOT. For example: use of a urinary catheter may require additional details about the diameter and length of catheter, material composition, number of lumens etc.\r\n\r\nIf the medical device has a number of components that require recording of details, each individual component should be recorded explicitly by using an additional CLUSTER.device archetype inserted into the 'Components' SLOT.\r\n\r\nThe data field 'Software Version' allows for only a single version to be recorded. This is primarily applicable for a device which is a software application. If the device has multiple software or hardware components that need to be specified, this should be done by using an addition CLUSTER.device inserted into the 'Components' SLOT.\r\n\r\nTo record additional details for durable or persistent devices that relate to ownership, physical location tracking, maintenance schedules etc, use CLUSTER.device_details archetype inserted into the 'Asset management' SLOT in this archetype.\r\n\r\nThis archetype has been designed for generic use within other archetypes that need to describe a device. Examples include: OBSERVATION.blood_pressure for the sphygmomanometer; OBSERVATION.ecg for the ECG machine; OBSERVATION.urinalysis for the reactent strips and the device used for testing; ACTION.procedure; and CLUSTER.exam_tympanic_membrane to detail the otoscope used.",
+          "misuse" : "Not to be used to record data about medicinal products that exert a direct pharmacological, metabolic or immunologic effect. For example: a medicine impregnated dressing that requires a prescription should be recorded using the  INSTRUCTION.medication_order archetype, focused on the active ingredients, dosage etc.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "ar-sy" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "ar-sy"
+          },
+          "purpose" : "لتسجيل التفاصيل حول شيئ محسوس, مُنتَج أو جهيزة يتم استخدامها في أوسع وصف لتقديم الخدمة الصحية, و لكن دون طريقة أيضية أو علاجية مباشِرة.",
+          "keywords" : [ "الجهيزة", "الآلة", "الطُّعم", "جهاز مساعد", "القثطار", "البِدْلة", "مساعدة", "طبي بيولوجي", "أداة", "المعدات", "مقياس", "مِرْقب", "بدني/محسوس", "شيئ" ],
+          "use" : "يستخدم لتسجيل التفاصيل حول أي جهيزة جنيسة (غير محدودة الملكية) و التي يمكن أن تستخدم إما مباشرةً بطريقة علاجية أو تشخيصية أو تستخدم بشكل غير مباشر لدعم تقديم الخدمة الصحية.\r\nو يختلف استخدام اللفظ (جهيزة) على حسب السياق. \r\nو في داخل عالم المعايير, فإن اللفظ (جهيزة) يميل إلى الإشارة إلى الجهائز الإلكترونية أو الميكانيكية/الحركية و التي تدعم الرعاية الصحية, و تتطلب توثيق مكثف فيما يتعلق بالمواصفات و الصيانة... إلى آخره.\r\nو في سياق عالم المصطلحات فإن استخدام (جهيزة) واسع جدا, بما في ذلك أي شيئ محسوس يمكن استخدامه في تقديم الرعاية الصحية إما بشكل مباشر أو غير مباشر. \r\nو تتضمن الأمثلة: دوائر أجهزة التنفس الصناعي, مقاييس الجريان القِمِّي, مقاييس التنفس, نظارات العين, العدسات اللاصقة, القثطار داخل الوريد, طُعوم الثدي, البِدْلات, أنابيب المَنْزَح, و الحلقات المسمارية.\r\n\r\nو تم تصميم هذا النموذج ليمثل الأساس لعرض مركب لأي جهيزة, من مثال بسيط لنوع من غميسة البول مع تاريخ الاستخدام, إلى طعم أذن من كائن حيّ و الذي يتطلب توثيق مركب مثل البرنامج الإلكتروني, و الأجزاء الصلبة, و الصيانة و التعيير, إلى آخره.\r\n\r\nو بالنسبة لحالات الاستخدام المعتادة, فقد يكون من المناسب تخصيص هذا النموذج خاصة في القثطار داخل الوريد أو القثطار البولي.",
+          "misuse" : "لا يستخدم لتسجيل المنتجات, مثل الأدوية أو التطعيمات أو ما شابه, و التي تستخدم لأغراض علاجية أو أيضية",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
+    },
+    "parentArchetypeId" : "openEHR-EHR-CLUSTER.device.v1",
+    "differential" : true,
+    "archetypeId" : {
+      "@type" : "ARCHETYPE_HRID",
+      "value" : "openEHR-EHR-CLUSTER.ovl-device-005.v1"
+    },
+    "definition" : {
+      "@type" : "C_COMPLEX_OBJECT",
+      "rmTypeName" : "CLUSTER",
+      "nodeId" : "at0000.1",
+      "attributes" : [ {
+        "@type" : "C_ATTRIBUTE",
+        "rmAttributeName" : "items",
+        "cardinality" : {
+          "@type" : "CARDINALITY",
+          "interval" : "1..*",
+          "ordered" : false,
+          "unique" : false
+        },
+        "children" : [ {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0003.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_TEXT",
+              "occurrences" : "1..1",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0002.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_TEXT",
+              "occurrences" : "1..1",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0004.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_TEXT",
+              "occurrences" : "1..1",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0005.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_DATE_TIME",
+              "occurrences" : "1..1",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0022.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_TEXT",
+              "occurrences" : "1..1",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0006.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_TEXT",
+              "occurrences" : "1..1",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0007.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_DATE_TIME",
+              "occurrences" : "1..1",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0024.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_IDENTIFIER",
+              "occurrences" : "1..1",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        } ]
+      } ],
+      "attributeTuples" : [ ]
+    },
+    "terminology" : {
+      "@type" : "ARCHETYPE_TERMINOLOGY",
+      "conceptCode" : "at0000",
+      "termDefinitions" : {
+        "ar-sy" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Hub",
+            "description" : "*An instrument, apparatus, implant, material or similar, used in the provision of healthcare. In this context, a medical device includes a broad range of devices which act through a variety of physical, mechanical, thermal or similar means but specifically excludes devices which act through medicinal means such as pharmacological, metabolic or immunological methods.  The scope is inclusive of disposable devices as well as durable or persisting devices that require tracking, maintenance activities or regular calibration, recognising that each type of device has specific data recording requirements.(en)"
+          },
+          "at0003.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0003.1",
+            "text" : "*Type(en)",
+            "description" : "*Type of medical device.(en)",
+            "comment" : "*Not applicable if a category is already recorded in 'Device Name'.\r\nCoding with a terminology is desirable, where possible, This may include use of GTIN or EAN numbers.(en)"
+          },
+          "at0002.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0002.1",
+            "text" : "الوصف",
+            "description" : "وصف الجهيزة"
+          },
+          "at0004.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0004.1",
+            "text" : "المُصَنِّع",
+            "description" : "اسم المُصَنِّع"
+          },
+          "at0005.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0005.1",
+            "text" : "تاريخ التصنيع",
+            "description" : "تاريخ تصنيع الجهيزة"
+          },
+          "at0022.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0022.1",
+            "text" : "*New element(en)",
+            "description" : "**(en)"
+          },
+          "at0006.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0006.1",
+            "text" : "رقم التشغيلة",
+            "description" : "رقم التشغيلة من المُصَنِّع"
+          },
+          "at0007.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0007.1",
+            "text" : "تاريخ انتهاء الصلاحية",
+            "description" : "التاريخ الذي يكون عنجه الجهيزة/المنتج غير مناسبا للاستخدام"
+          },
+          "at0024.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0024.1",
+            "text" : "*Other identifier(en)",
+            "description" : "*Unspecified identifier, which can be further specified in a template or at run time.(en)",
+            "comment" : "*Coding of the name of the identifier with a coding system is desirable, if available.(en)"
+          }
+        },
+        "en" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Hub",
+            "description" : "An instrument, apparatus, implant, material or similar, used in the provision of healthcare. In this context, a medical device includes a broad range of devices which act through a variety of physical, mechanical, thermal or similar means but specifically excludes devices which act through medicinal means such as pharmacological, metabolic or immunological methods.  The scope is inclusive of disposable devices as well as durable or persisting devices that require tracking, maintenance activities or regular calibration, recognising that each type of device has specific data recording requirements."
+          },
+          "at0003.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0003.1",
+            "text" : "Type",
+            "description" : "The category or kind of device.",
+            "comment" : "Not applicable if a category is already recorded in 'Device name'.\r\n Example: if the 'Device' is named as a 'urinary catheter'; the 'Type' may be recorded as 'indwelling' or 'condom'.Coding with a terminology is desirable, where possible. This may include use of GTIN or EAN numbers."
+          },
+          "at0002.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0002.1",
+            "text" : "Description",
+            "description" : "Narrative description of the medical device."
+          },
+          "at0004.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0004.1",
+            "text" : "Manufacturer",
+            "description" : "Name of manufacturer."
+          },
+          "at0005.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0005.1",
+            "text" : "Date of manufacture",
+            "description" : "Date the device was manufactured."
+          },
+          "at0022.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0022.1",
+            "text" : "Catalogue number",
+            "description" : "The exact number assigned by the manufacturer, as it appears in the manufacturer's catalogue, device labeling, or accompanying packaging."
+          },
+          "at0006.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0006.1",
+            "text" : "Batch/Lot number",
+            "description" : "The number assigned by the manufacturer which identifies a group of items manufactured at the same time, usually found on the label or packaging material."
+          },
+          "at0007.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0007.1",
+            "text" : "Date of expiry",
+            "description" : "Date after which the device/product is no longer fit for use, usually found on the device itself or printed on the accompanying packaging.",
+            "comment" : "This date usually applies only to single use or disposable devices."
+          },
+          "at0024.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0024.1",
+            "text" : "Other identifier",
+            "description" : "Unspecified identifier, which can be further specified in a template or at run time.",
+            "comment" : "Coding of the name of the identifier with a coding system is desirable, if available."
+          }
+        },
+        "nb" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Hub",
+            "description" : "*An instrument, apparatus, implant, material or similar, used in the provision of healthcare. In this context, a medical device includes a broad range of devices which act through a variety of physical, mechanical, thermal or similar means but specifically excludes devices which act through medicinal means such as pharmacological, metabolic or immunological methods.  The scope is inclusive of disposable devices as well as durable or persisting devices that require tracking, maintenance activities or regular calibration, recognising that each type of device has specific data recording requirements.(en)"
+          },
+          "at0003.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0003.1",
+            "text" : "Type",
+            "description" : "*The category or kind of device.(en)",
+            "comment" : "*Not applicable if a category is already recorded in 'Device name'.\r\n Example: if the 'Device' is named as a 'urinary catheter'; the 'Type' may be recorded as 'indwelling' or 'condom'.Coding with a terminology is desirable, where possible. This may include use of GTIN or EAN numbers.(en)"
+          },
+          "at0002.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0002.1",
+            "text" : "Beskrivelse",
+            "description" : "*Narrative description of the medical device.(en)"
+          },
+          "at0004.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0004.1",
+            "text" : "Produsent",
+            "description" : "Navnet til produsenten."
+          },
+          "at0005.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0005.1",
+            "text" : "Produksjonsdato",
+            "description" : "Dato for produksjon av enheten."
+          },
+          "at0022.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0022.1",
+            "text" : "*Catalog number(en)",
+            "description" : "*The exact number assigned by the manufacturer, as it appears in the manufacturer's catalog, device labeling, or accompanying packaging.(en)"
+          },
+          "at0006.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0006.1",
+            "text" : "*Batch/Lot number(en)",
+            "description" : "*The number assigned by the manufacturer which identifies a group of items manufactured at the same time, usually found on the label or packaging material.(en)"
+          },
+          "at0007.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0007.1",
+            "text" : "Utløpsdato",
+            "description" : "*Date after which the device/product is no longer fit for use, usually found on the device itself or printed on the accompanying packaging.(en)",
+            "comment" : "*This date usually applies only to single use or disposable devices.(en)"
+          },
+          "at0024.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0024.1",
+            "text" : "*Other identifier(en)",
+            "description" : "*Unspecified identifier, which can be further specified in a template or at run time.(en)",
+            "comment" : "*Coding of the name of the identifier with a coding system is desirable, if available.(en)"
+          }
+        },
+        "es-ar" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Hub",
+            "description" : "*An instrument, apparatus, implant, material or similar, used in the provision of healthcare. In this context, a medical device includes a broad range of devices which act through a variety of physical, mechanical, thermal or similar means but specifically excludes devices which act through medicinal means such as pharmacological, metabolic or immunological methods.  The scope is inclusive of disposable devices as well as durable or persisting devices that require tracking, maintenance activities or regular calibration, recognising that each type of device has specific data recording requirements.(en)"
+          },
+          "at0003.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0003.1",
+            "text" : "*Type(en)",
+            "description" : "*Type of medical device.(en)",
+            "comment" : "*Not applicable if a category is already recorded in 'Device Name'.\r\nCoding with a terminology is desirable, where possible, This may include use of GTIN or EAN numbers.(en)"
+          },
+          "at0002.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0002.1",
+            "text" : "Descripción",
+            "description" : "Descripción del dispositivo."
+          },
+          "at0004.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0004.1",
+            "text" : "Fabricante",
+            "description" : "Fabricante del dispositivo."
+          },
+          "at0005.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0005.1",
+            "text" : "Fecha de fabricación",
+            "description" : "Fecha de fabricación del dispositivo."
+          },
+          "at0022.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0022.1",
+            "text" : "*New element(en)",
+            "description" : "**(en)"
+          },
+          "at0006.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0006.1",
+            "text" : "Número de lote",
+            "description" : "Número de lote del fabricante."
+          },
+          "at0007.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0007.1",
+            "text" : "Fecha de vencimiento",
+            "description" : "Fecha para la cual el dispositivo o producto deja de ser adecuado para su uso."
+          },
+          "at0024.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0024.1",
+            "text" : "*Other identifier(en)",
+            "description" : "*Unspecified identifier, which can be further specified in a template or at run time.(en)",
+            "comment" : "*Coding of the name of the identifier with a coding system is desirable, if available.(en)"
+          }
+        }
+      },
+      "termBindings" : { },
+      "terminologyExtracts" : { },
+      "valueSets" : { }
+    },
+    "adlVersion" : "1.4",
+    "buildUid" : "b564bcca-3c1e-3249-b72e-e51ed78f29c8",
+    "rmName" : "openehr",
+    "rmRelease" : "1.0.2",
+    "generated" : true,
+    "otherMetaData" : { },
+    "originalLanguage" : {
+      "terminologyId" : {
+        "value" : "ISO_639-1"
+      },
+      "codeString" : "en"
+    },
+    "translations" : [ {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "nb"
+      },
+      "author" : {
+        "name" : "Lars Bitsch-Larsen",
+        "organisation" : "Haukeland University Hospital",
+        "email" : "lbla@helse-bergen.no"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "es-ar"
+      },
+      "author" : {
+        "name" : "Alan March",
+        "organisation" : "Hospital Universitario Austral, Buenos Aires, Argentina",
+        "email" : "amarch@cas.austral.edu.ar"
+      },
+      "accreditation" : "MD",
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "ar-sy"
+      },
+      "author" : {
+        "name" : "Mona Saleh"
+      },
+      "otherDetails" : { }
+    } ]
+  }, {
+    "@type" : "TEMPLATE_OVERLAY",
+    "uid" : "cc76e296-22aa-3688-aa9b-d035cda153f3",
+    "description" : {
+      "@type" : "RESOURCE_DESCRIPTION",
+      "originalAuthor" : { },
+      "otherContributors" : [ ],
+      "ipAcknowledgements" : { },
+      "references" : { },
+      "conversionDetails" : { },
+      "otherDetails" : {
+        "PARENT:MD5-CAM-1.0.1" : "B0EB41468238C10CA5D1A2C21A1BA71A"
+      },
+      "details" : {
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "keywords" : [ ],
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
+    },
+    "parentArchetypeId" : "openEHR-EHR-CLUSTER.device_hand_over_checklist.v0",
+    "differential" : true,
+    "archetypeId" : {
+      "@type" : "ARCHETYPE_HRID",
+      "value" : "openEHR-EHR-CLUSTER.ovl-device_hand_over_checklist-006.v0"
+    },
+    "definition" : {
+      "@type" : "C_COMPLEX_OBJECT",
+      "rmTypeName" : "CLUSTER",
+      "nodeId" : "at0000.1",
+      "attributes" : [ ],
+      "attributeTuples" : [ ]
+    },
+    "terminology" : {
+      "@type" : "ARCHETYPE_TERMINOLOGY",
+      "conceptCode" : "at0000",
+      "termDefinitions" : {
+        "en" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Device hand over checklist",
+            "description" : "unknown"
+          }
+        }
+      },
+      "termBindings" : { },
+      "terminologyExtracts" : { },
+      "valueSets" : { }
+    },
+    "adlVersion" : "1.4",
+    "buildUid" : "bea3ff92-4a83-384b-b883-50a6d22a404a",
+    "rmName" : "openehr",
+    "rmRelease" : "1.0.2",
+    "generated" : true,
+    "otherMetaData" : { },
+    "originalLanguage" : {
+      "terminologyId" : {
+        "value" : "ISO_639-1"
+      },
+      "codeString" : "en"
+    },
+    "translations" : [ ]
+  }, {
+    "@type" : "TEMPLATE_OVERLAY",
+    "uid" : "4be3213c-3f40-3e23-90c2-1fbe9b19c8c0",
+    "description" : {
+      "@type" : "RESOURCE_DESCRIPTION",
+      "originalAuthor" : { },
+      "otherContributors" : [ ],
+      "ipAcknowledgements" : { },
+      "references" : { },
+      "conversionDetails" : { },
+      "otherDetails" : {
+        "PARENT:MD5-CAM-1.0.1" : "B57E4A1B668AA091230C201E1BE46884"
+      },
+      "details" : {
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "purpose" : "To record address details compliant with European ISA Standard.",
+          "keywords" : [ ],
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
+    },
+    "parentArchetypeId" : "openEHR-EHR-CLUSTER.address_isa.v1",
+    "differential" : true,
+    "archetypeId" : {
+      "@type" : "ARCHETYPE_HRID",
+      "value" : "openEHR-EHR-CLUSTER.ovl-address_isa-007.v1"
+    },
+    "definition" : {
+      "@type" : "C_COMPLEX_OBJECT",
+      "rmTypeName" : "CLUSTER",
+      "nodeId" : "at0000.1",
+      "attributes" : [ {
+        "@type" : "C_ATTRIBUTE",
+        "rmAttributeName" : "items",
+        "cardinality" : {
+          "@type" : "CARDINALITY",
+          "interval" : "1..*",
+          "ordered" : false,
+          "unique" : false
+        },
+        "children" : [ {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0001.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_PARSABLE",
+              "occurrences" : "1..1",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "formalism",
+                "existence" : "0..1",
+                "children" : [ {
+                  "@type" : "C_STRING",
+                  "rmTypeName" : "String",
+                  "occurrences" : "1..1",
+                  "constraint" : [ "text/plain", "text/rtf", "text/html", "text/xml" ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0002.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_TEXT",
+              "occurrences" : "1..1",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0003.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_TEXT",
+              "occurrences" : "1..1",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        } ]
+      } ],
+      "attributeTuples" : [ ]
+    },
+    "terminology" : {
+      "@type" : "ARCHETYPE_TERMINOLOGY",
+      "conceptCode" : "at0000",
+      "termDefinitions" : {
+        "en" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Device delivery",
+            "description" : "Address details compliant with European ISA Standard."
+          },
+          "at0001.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0001.1",
+            "text" : "Full Address",
+            "description" : "The complete address written as a string, with or without formatting."
+          },
+          "at0002.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0002.1",
+            "text" : "PO Box",
+            "description" : "The Post Office Box number."
+          },
+          "at0003.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0003.1",
+            "text" : "Thoroughfare",
+            "description" : "An address component that represents the name of a passage or way through from one location to another. A thoroughfare is not necessarily a road, it might be a waterway or some other feature."
+          }
+        }
+      },
+      "termBindings" : { },
+      "terminologyExtracts" : { },
+      "valueSets" : { }
+    },
+    "adlVersion" : "1.4",
+    "buildUid" : "61d29f4f-9686-39b9-b683-da55447bdc22",
+    "rmName" : "openehr",
+    "rmRelease" : "1.0.2",
+    "generated" : true,
+    "otherMetaData" : { },
+    "originalLanguage" : {
+      "terminologyId" : {
+        "value" : "ISO_639-1"
+      },
+      "codeString" : "en"
+    },
+    "translations" : [ ]
+  } ],
+  "originalLanguage" : {
+    "terminologyId" : {
+      "value" : "ISO_639-1"
+    },
+    "codeString" : "en"
+  },
+  "translations" : [ {
+    "@type" : "TRANSLATION_DETAILS",
+    "language" : {
+      "terminologyId" : {
+        "value" : "ISO_639-1"
+      },
+      "codeString" : "ar-sy"
+    },
+    "author" : {
+      "name" : "Mona Saleh"
+    },
+    "otherDetails" : { }
+  } ]
+}

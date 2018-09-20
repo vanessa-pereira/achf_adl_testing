@@ -1,0 +1,77 @@
+archetype (adl_version=1.4; uid=9378182f-9f85-3da3-96fd-067dfb361520)
+    openEHR-EHR-ADMIN_ENTRY.remote_monitoring_preferences.v0
+
+concept
+    [at0000]
+
+language
+    original_language = <[ISO_639-1::en]>
+
+description
+    original_author = <
+        ["name"] = <"">
+    >
+    lifecycle_state = <"0">
+    details = <
+        ["en"] = <
+            language = <[ISO_639-1::en]>
+        >
+    >
+    other_details = <
+        ["MD5-CAM-1.0.1"] = <"BA5A449C2D40BFF8F821E795D755257A">
+        ["build_uuid"] = <"5c62af4e-f7fa-3e30-9c34-38ac601afde2">
+    >
+
+definition
+    ADMIN_ENTRY[at0000] matches {
+        data matches {
+            ITEM_TREE[at0001] matches {
+                items cardinality matches {0..*; unordered} matches {
+                    ELEMENT[at0004] occurrences matches {0..1} matches {
+                        value matches {
+                            DV_DATE_TIME matches {*}
+                        }
+                    }
+                    ELEMENT[at0003] occurrences matches {0..1} matches {
+                        value matches {
+                            DV_BOOLEAN matches {*}
+                        }
+                    }
+                    ELEMENT[at0002] occurrences matches {0..1} matches {
+                        value matches {
+                            DV_TEXT matches {*}
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+ontology
+    terminologies_available = <"en", ...>
+    term_definitions = <
+        ["en"] = <
+            items = <
+                ["at0000"] = <
+                    text = <"Remote monitoring preferences">
+                    description = <"unknown">
+                >
+                ["at0001"] = <
+                    text = <"Tree">
+                    description = <"@ internal @">
+                >
+                ["at0002"] = <
+                    text = <"Comment">
+                    description = <"*">
+                >
+                ["at0003"] = <
+                    text = <"Inclusion denied">
+                    description = <"*">
+                >
+                ["at0004"] = <
+                    text = <"Date of appointment">
+                    description = <"*">
+                >
+            >
+        >
+    >

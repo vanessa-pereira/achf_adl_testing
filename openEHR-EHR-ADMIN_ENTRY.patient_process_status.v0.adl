@@ -1,0 +1,86 @@
+archetype (adl_version=1.4; uid=a11e29e3-117e-339a-8a56-eb8e718878c9)
+    openEHR-EHR-ADMIN_ENTRY.patient_process_status.v0
+
+concept
+    [at0000]
+
+language
+    original_language = <[ISO_639-1::en]>
+
+description
+    original_author = <
+        ["name"] = <"">
+    >
+    lifecycle_state = <"0">
+    details = <
+        ["en"] = <
+            language = <[ISO_639-1::en]>
+        >
+    >
+    other_details = <
+        ["MD5-CAM-1.0.1"] = <"F50DFA438FE6EEFED96D743D1570E666">
+        ["build_uuid"] = <"7ed69149-b6e9-3506-b5bb-cf9e526a2b95">
+    >
+
+definition
+    ADMIN_ENTRY[at0000] matches {
+        data matches {
+            ITEM_TREE[at0001] matches {
+                items cardinality matches {0..*; unordered} matches {
+                    ELEMENT[at0002] occurrences matches {0..1} matches {
+                        value matches {
+                            DV_TEXT matches {*}
+                        }
+                    }
+                    ELEMENT[at0003] occurrences matches {0..1} matches {
+                        value matches {
+                            DV_TEXT matches {*}
+                        }
+                    }
+                    ELEMENT[at0005] occurrences matches {0..1} matches {
+                        value matches {
+                            DV_TEXT matches {*}
+                        }
+                    }
+                    ELEMENT[at0004] occurrences matches {0..1} matches {
+                        value matches {
+                            DV_DATE_TIME matches {*}
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+ontology
+    terminologies_available = <"en", ...>
+    term_definitions = <
+        ["en"] = <
+            items = <
+                ["at0000"] = <
+                    text = <"Patient process status">
+                    description = <"unknown">
+                >
+                ["at0001"] = <
+                    text = <"Tree">
+                    description = <"@ internal @">
+                >
+                ["at0002"] = <
+                    text = <"Patient status">
+                    description = <"*">
+                >
+                ["at0003"] = <
+                    text = <"Additional status">
+                    description = <"*">
+                >
+                ["at0004"] = <
+                    text = <"Date of status changed">
+                    description = <"*">
+                >
+                ["at0005"] = <
+                    text = <"Status reason">
+                    description = <"*">
+                >
+            >
+        >
+    >

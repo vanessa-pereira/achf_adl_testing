@@ -1,0 +1,192 @@
+archetype (adl_version=1.4; uid=1d710bea-aff6-3559-863e-c20f40c70c29)
+    openEHR-EHR-OBSERVATION.six_minute_walk_test.v0
+
+concept
+    [at0000]
+
+language
+    original_language = <[ISO_639-1::en]>
+
+description
+    original_author = <
+        ["name"] = <"">
+    >
+    lifecycle_state = <"0">
+    details = <
+        ["en"] = <
+            language = <[ISO_639-1::en]>
+        >
+    >
+    other_details = <
+        ["MD5-CAM-1.0.1"] = <"D85E7A06CB528CA53987629DFD24C243">
+        ["build_uuid"] = <"5b95dfc6-17a0-3696-8c2c-36b44648290a">
+    >
+
+definition
+    OBSERVATION[at0000] matches {
+        data matches {
+            HISTORY[at0001] matches {
+                events cardinality matches {1..*; unordered} matches {
+                    EVENT[at0002] occurrences matches {0..1} matches {
+                        data matches {
+                            ITEM_TREE[at0003] matches {
+                                items cardinality matches {0..*; unordered} matches {
+                                    ELEMENT[at0004] occurrences matches {0..1} matches {
+                                        value matches {
+                                            C_DV_QUANTITY <
+                                                property = <[openehr::122]>
+                                                list = <
+                                                    ["1"] = <
+                                                        units = <"m">
+                                                        magnitude = <|>=0.0|>
+                                                    >
+                                                >
+                                            >
+                                        }
+                                    }
+                                    ELEMENT[at0005] occurrences matches {0..1} matches {
+                                        value matches {
+                                            DV_BOOLEAN matches {*}
+                                        }
+                                    }
+                                    ELEMENT[at0006] occurrences matches {0..*} matches {
+                                        value matches {
+                                            DV_TEXT matches {*}
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        state matches {
+                            ITEM_TREE[at0007] matches {
+                                items cardinality matches {0..*; unordered} matches {
+                                    ELEMENT[at0008] occurrences matches {0..*} matches {
+                                        value matches {
+                                            DV_TEXT matches {*}
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        protocol matches {
+            ITEM_TREE[at0009] matches {
+                items cardinality matches {0..*; unordered} matches {
+                    ELEMENT[at0010] occurrences matches {0..1} matches {
+                        value matches {
+                            DV_BOOLEAN matches {*}
+                        }
+                    }
+                    ELEMENT[at0011] occurrences matches {0..*} matches {
+                        value matches {
+                            DV_TEXT matches {*}
+                        }
+                    }
+                    ELEMENT[at0012] occurrences matches {0..1} matches {
+                        value matches {
+                            DV_CODED_TEXT matches {
+                                defining_code matches {
+                                    [local::
+                                    at0013,
+                                    at0014]
+                                }
+                            }
+                        }
+                    }
+                    allow_archetype CLUSTER[at0015] occurrences matches {0..1} matches {
+                        include
+                            archetype_id/value matches {/.*/}
+                    }
+                    allow_archetype CLUSTER[at0016] occurrences matches {0..*} matches {
+                        include
+                            archetype_id/value matches {/.*/}
+                    }
+                }
+            }
+        }
+    }
+
+ontology
+    terminologies_available = <"en", ...>
+    term_definitions = <
+        ["en"] = <
+            items = <
+                ["at0000"] = <
+                    text = <"Six Minute Walk Test">
+                    description = <"unknown">
+                >
+                ["at0001"] = <
+                    text = <"Event Series">
+                    description = <"@ internal @">
+                >
+                ["at0002"] = <
+                    text = <"Any event">
+                    description = <"*">
+                >
+                ["at0003"] = <
+                    text = <"Tree">
+                    description = <"@ internal @">
+                >
+                ["at0004"] = <
+                    text = <"Distance">
+                    description = <"Distance an individual is able to walk over a total of six minutes on a hard, flat surface.">
+                >
+                ["at0005"] = <
+                    text = <"Trial Not Completed?">
+                    description = <"Could the distance not be completed or was the trial terminated prematurely?">
+                    comment = <"Record as True if the trial was not able to be completed as per the standard methodology. Please specify reasons for this separately. A successful trial needs not to be specifically marked.">
+                >
+                ["at0006"] = <
+                    text = <"Reasons For Non-completion">
+                    description = <"Record the reasons, if the distance could not be completed or the test was terminated prematurely.">
+                    comment = <"Example reasons for non-completion include (but are not limited to), if the patient's disease has progressed or physical limitations prohibit him from completing the trial, indicate \"Unable to complete trial due to physical limitations\". In addition, record any specifics that can be observed (i.e., \"Patient is in a wheelchair now and unable to walk\"). If the patient did not complete a trial for any other reason, specify this as well (e.g., \"Patient fell and was too fatigued to complete another trial\", or \"Patient refused to complete trial\").">
+                >
+                ["at0007"] = <
+                    text = <"Tree">
+                    description = <"@ internal @">
+                >
+                ["at0008"] = <
+                    text = <"Confounding Factors">
+                    description = <"Record any circumstances that you believe may have affected the patient's performance.">
+                    comment = <"Example confounding factors include (but are not limited to): \"The patient had a cold\", \"The patient reports not feeling well\", or \"The patient tripped but did not fall\".">
+                >
+                ["at0009"] = <
+                    text = <"Tree">
+                    description = <"@ internal @">
+                >
+                ["at0010"] = <
+                    text = <"More Than Two Attempts?">
+                    description = <"Were there more than two attempts to get two successful trials?">
+                    comment = <"A flag indicating that it took more than two attempts to get two successful trials. Record as True only if a situation arises that necessitates the repetition of a trial (and indicate the reason therefore separately).">
+                >
+                ["at0011"] = <
+                    text = <"Reasons For More Than Two Attempts">
+                    description = <"Reasons for more than two attempts to get two successful trials.">
+                    comment = <"Example reasons for more than two attempts include (but are not limited to): \"The patient fell during the walk\", \"Examiner forgot to start/stop/reset stopwatch\", \"The patient stopped to talk to someone while walking\", or \"Another person/thing interfered with walk\".">
+                >
+                ["at0012"] = <
+                    text = <"Entry method">
+                    description = <"*">
+                >
+                ["at0013"] = <
+                    text = <"Automatic entry">
+                    description = <"*">
+                >
+                ["at0014"] = <
+                    text = <"Direct entry">
+                    description = <"*">
+                >
+                ["at0015"] = <
+                    text = <"Device">
+                    description = <"*">
+                >
+                ["at0016"] = <
+                    text = <"Extension">
+                    description = <"*">
+                >
+            >
+        >
+    >

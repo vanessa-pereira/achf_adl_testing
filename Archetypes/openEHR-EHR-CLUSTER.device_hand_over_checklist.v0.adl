@@ -1,0 +1,86 @@
+archetype (adl_version=1.4; uid=cc76e296-22aa-3688-aa9b-d035cda153f3)
+    openEHR-EHR-CLUSTER.device_hand_over_checklist.v0
+
+concept
+    [at0000]
+
+language
+    original_language = <[ISO_639-1::en]>
+
+description
+    original_author = <
+        ["name"] = <"">
+    >
+    lifecycle_state = <"0">
+    details = <
+        ["en"] = <
+            language = <[ISO_639-1::en]>
+        >
+    >
+    other_details = <
+        ["MD5-CAM-1.0.1"] = <"B0EB41468238C10CA5D1A2C21A1BA71A">
+        ["build_uuid"] = <"bea3ff92-4a83-384b-b883-50a6d22a404a">
+    >
+
+definition
+    CLUSTER[at0000] matches {
+        items cardinality matches {1..*; unordered} matches {
+            CLUSTER[at0004] occurrences matches {0..1} matches {
+                items cardinality matches {1..*; unordered} matches {
+                    ELEMENT[at0001] occurrences matches {0..1} matches {
+                        value matches {
+                            DV_BOOLEAN matches {*}
+                        }
+                    }
+                    ELEMENT[at0002] occurrences matches {0..1} matches {
+                        value matches {
+                            DV_BOOLEAN matches {*}
+                        }
+                    }
+                    ELEMENT[at0003] occurrences matches {0..1} matches {
+                        value matches {
+                            DV_BOOLEAN matches {*}
+                        }
+                    }
+                }
+            }
+            ELEMENT[at0005] occurrences matches {0..1} matches {
+                value matches {
+                    DV_TEXT matches {*}
+                }
+            }
+        }
+    }
+
+ontology
+    terminologies_available = <"en", ...>
+    term_definitions = <
+        ["en"] = <
+            items = <
+                ["at0000"] = <
+                    text = <"Device hand over checklist">
+                    description = <"unknown">
+                >
+                ["at0001"] = <
+                    text = <"Device delivery">
+                    description = <"*">
+                >
+                ["at0002"] = <
+                    text = <"Acceptance from signed">
+                    description = <"*">
+                >
+                ["at0003"] = <
+                    text = <"Education conducted">
+                    description = <"*">
+                >
+                ["at0004"] = <
+                    text = <"Checklist">
+                    description = <"*">
+                >
+                ["at0005"] = <
+                    text = <"Comment">
+                    description = <"*">
+                >
+            >
+        >
+    >
